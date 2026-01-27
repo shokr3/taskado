@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Figtree:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Figtree', sans-serif;
+  background-color: #FFFFFF;
+  color: #0B0B2D;
+  line-height: 1.6;
+}
+
+/* Headings with Audiowide */
+h1, h2, h3 {
+  font-family: 'Audiowide', cursive;
+}
+
+/* Custom utility classes */
+@layer utilities {
+  .font-audiowide {
+    font-family: 'Audiowide', cursive;
+  }
+
+  .font-figtree {
+    font-family: 'Figtree', sans-serif;
+  }
+}
+
+/* Button styles */
+@layer components {
+  .btn-primary {
+    @apply bg-high-blue text-white transition-all duration-300;
+  }
+
+  .btn-primary:hover {
+    @apply bg-high-blue-light;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(39, 39, 244, 0.3);
+  }
+}
+
+/* Smooth animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
