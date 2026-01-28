@@ -68,7 +68,7 @@ export const translations = {
       title: { hr: 'Fiskalizacija 2.0', en: 'Fiscalization 2.0' },
       description: { 
         hr: 'Automatizirano izdavanje računa u skladu s hrvatskim propisima putem odabranog posrednika.', 
-        en: 'Full integration with FINA system. Automated invoicing compliant with Croatian regulations.' 
+        en: 'Automated invoicing compliant with Croatian regulations through your chosen provider.' 
       },
     },
     
@@ -102,7 +102,7 @@ export const translations = {
       payments: { hr: 'Svi načini plaćanja', en: 'All payment methods' },
       vat: { hr: 'Svi PDV razredi', en: 'All VAT rates' },
       qr: { hr: 'Automatsko generiranje QR kodova', en: 'Automatic QR code generation' },
-      offline: { hr: 'Offline podrška', en: 'Offline support' },
+      offline: { hr: 'Podrška za offline mod', en: 'Offline mode support' },
       fina: { hr: 'Integracija odabranog posrednika', en: 'Integration with chosen provider' },
     },
   },

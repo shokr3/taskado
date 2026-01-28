@@ -7,15 +7,41 @@ export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  const [error, setError] = useState<string | null>(null);
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(null);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      company: formData.get('company'),
+      phone: formData.get('phone'),
+      message: formData.get('message'),
+    };
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      setIsSubmitted(true);
+    } catch (err) {
+      setError('Došlo je do greške. Molimo pokušajte ponovno ili nas kontaktirajte direktno.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -143,6 +169,12 @@ export function Contact() {
                     className="w-full px-4 py-3 rounded-xl border border-neutral-grey focus:border-high-blue focus:ring-2 focus:ring-high-blue/20 outline-none transition-all resize-none"
                   ></textarea>
                 </div>
+                
+                {error && (
+                  <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm">
+                    {error}
+                  </div>
+                )}
                 
                 <button
                   type="submit"
