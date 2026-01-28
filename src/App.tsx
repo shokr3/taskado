@@ -5,7 +5,7 @@ import { Fiscalization } from './components/Fiscalization';
 import { MobileApp } from './components/MobileApp';
 import { AISection } from './components/AISection';
 import { Pricing } from './components/Pricing';
-import { Testimonials } from './components/Testimonials';
+// import { Testimonials } from './components/Testimonials';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 
