@@ -5,11 +5,11 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-gradient-to-b from-white to-light-sand/30">
-      {/* Decorative elements */}
-      <div className="absolute top-20 right-0 w-96 h-96 bg-high-blue/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-light-sand rounded-full blur-3xl"></div>
+      {/* Decorative elements - hidden on mobile, positioned safely on larger screens */}
+      <div className="absolute top-20 right-0 w-96 h-96 bg-high-blue/5 rounded-full blur-3xl pointer-events-none" style={{ WebkitBackfaceVisibility: 'hidden' }}></div>
+      <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-light-sand/50 rounded-full blur-3xl pointer-events-none hidden sm:block" style={{ WebkitBackfaceVisibility: 'hidden' }}></div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left content */}
           <div className="text-center lg:text-left">
