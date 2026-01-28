@@ -19,7 +19,7 @@ function App() {
         <Fiscalization />
         <MobileApp />
         <AISection />
-        <Testimonials />
+        {/* <Testimonials /> */}
         <Pricing />
         <Contact />
       </main>

@@ -5,7 +5,7 @@ export function Footer() {
 
   return (
     <footer className="bg-dark-orchid pt-16 pb-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Logo and description */}
           <div className="lg:col-span-1">

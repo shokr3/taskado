@@ -5,7 +5,7 @@ export function Pricing() {
 
   return (
     <section id="pricing" className="py-20 md:py-32 bg-light-sand/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-dark-orchid mb-4">
             {t('pricing.title')}

@@ -11,7 +11,7 @@ export function Fiscalization() {
       <div className="absolute top-0 right-0 w-64 h-64 bg-high-blue/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-light-sand/5 rounded-full blur-3xl"></div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left - Content */}
           <div>
@@ -97,7 +97,7 @@ export function Fiscalization() {
                     <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
                 </div>
-                <span className="text-dark-orchid font-semibold text-sm">FINA verificirano</span>
+                <span className="text-dark-orchid font-semibold text-sm">Račun fiskaliziran</span>
               </div>
             </div>
           </div>

@@ -24,7 +24,7 @@ export function Contact() {
       <div className="absolute top-0 left-0 w-96 h-96 bg-high-blue/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-0 w-80 h-80 bg-light-sand/5 rounded-full blur-3xl"></div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left - Content */}
           <div>
@@ -45,8 +45,8 @@ export function Contact() {
                 </div>
                 <div>
                   <div className="text-white/60 text-sm">Email</div>
-                  <a href="mailto:info@taskado.hr" className="text-white font-medium hover:text-high-blue transition-colors">
-                    info@taskado.hr
+                  <a href="mailto:taskado@knowit.tech" className="text-white font-medium hover:text-high-blue transition-colors">
+                    taskado@knowit.tech
                   </a>
                 </div>
               </div>
@@ -59,8 +59,8 @@ export function Contact() {
                 </div>
                 <div>
                   <div className="text-white/60 text-sm">Telefon</div>
-                  <a href="tel:+385123456789" className="text-white font-medium hover:text-high-blue transition-colors">
-                    +385 1 234 5678
+                  <a href="tel:+385953873879" className="text-white font-medium hover:text-high-blue transition-colors">
+                    +385 95 387 3879
                   </a>
                 </div>
               </div>

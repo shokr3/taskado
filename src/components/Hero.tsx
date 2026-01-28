@@ -4,31 +4,55 @@ export function Hero() {
   const { t } = useLanguage();
 
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-gradient-to-b from-white to-light-sand/30">
-      {/* Decorative elements - hidden on mobile, positioned safely on larger screens */}
-      <div className="absolute top-20 right-0 w-96 h-96 bg-high-blue/5 rounded-full blur-3xl pointer-events-none" style={{ WebkitBackfaceVisibility: 'hidden' }}></div>
-      <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-light-sand/50 rounded-full blur-3xl pointer-events-none hidden sm:block" style={{ WebkitBackfaceVisibility: 'hidden' }}></div>
+    <section className="relative min-h-screen flex flex-col pt-20 overflow-hidden">
+      {/* Gentle animated gradient background */}
+      <div 
+        className="absolute inset-0 animate-gradient-shift"
+        style={{
+          background: 'linear-gradient(-45deg, #ffffff, #faf9f4, #ffffff, #f9f9ff)',
+          backgroundSize: '400% 400%'
+        }}
+      ></div>
       
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      {/* Fixed edge blurs - top */}
+      <div className="absolute -top-20 left-1/4 w-[400px] h-[300px] bg-light-sand/40 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute -top-10 right-1/3 w-[300px] h-[200px] bg-high-blue/8 rounded-full blur-3xl pointer-events-none"></div>
+      
+      {/* Fixed edge blurs - left side */}
+      <div className="absolute top-1/4 -left-20 w-[300px] h-[400px] bg-light-sand/50 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute top-1/2 -left-10 w-[200px] h-[300px] bg-high-blue/5 rounded-full blur-3xl pointer-events-none"></div>
+      
+      {/* Fixed edge blurs - right side */}
+      <div className="absolute top-20 -right-20 w-[350px] h-[350px] bg-high-blue/10 rounded-full blur-3xl pointer-events-none"></div>
+      
+      {/* Fixed edge blurs - bottom corners */}
+      <div className="absolute bottom-20 -left-10 w-[400px] h-[300px] bg-light-sand/60 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-40 -right-20 w-[300px] h-[400px] bg-high-blue/6 rounded-full blur-3xl pointer-events-none"></div>
+      
+      {/* Center area soft gradient */}
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(239, 234, 213, 0.3) 0%, transparent 70%)' }}></div>
+      
+      {/* Main content */}
+      <div className="relative z-10 flex-1 flex items-center max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16 py-12 md:py-16">
+        <div className="grid lg:grid-cols-2 gap-12 2xl:gap-20 items-center">
           {/* Left content */}
           <div className="text-center lg:text-left">
             <span className="inline-block px-4 py-2 bg-high-blue/10 text-high-blue rounded-full text-sm font-semibold mb-6">
               {t('hero.tagline')}
             </span>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-dark-orchid leading-tight mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-bold text-dark-orchid leading-tight mb-6 2xl:mb-8">
               {t('hero.title')}
             </h1>
             
-            <p className="text-lg md:text-xl text-dark-orchid/70 mb-8 max-w-xl mx-auto lg:mx-0 font-figtree">
+            <p className="text-lg md:text-xl 2xl:text-2xl text-dark-orchid/70 mb-8 2xl:mb-10 max-w-xl 2xl:max-w-2xl mx-auto lg:mx-0 font-figtree">
               {t('hero.subtitle')}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-6">
               <a 
                 href="#contact" 
-                className="btn-primary px-8 py-4 rounded-xl font-semibold text-lg inline-flex items-center justify-center gap-2"
+                className="btn-primary px-8 py-4 2xl:px-10 2xl:py-5 rounded-xl font-semibold text-lg 2xl:text-xl inline-flex items-center justify-center gap-2"
               >
                 {t('hero.cta')}
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -38,7 +62,7 @@ export function Hero() {
               
               <a 
                 href="#contact" 
-                className="px-8 py-4 rounded-xl font-semibold text-lg border-2 border-dark-orchid text-dark-orchid hover:bg-dark-orchid hover:text-white transition-all inline-flex items-center justify-center gap-2"
+                className="px-8 py-4 2xl:px-10 2xl:py-5 rounded-xl font-semibold text-lg 2xl:text-xl border-2 border-dark-orchid text-dark-orchid hover:bg-dark-orchid hover:text-white transition-all inline-flex items-center justify-center gap-2"
               >
                 {t('hero.ctaSecondary')}
               </a>
@@ -53,7 +77,7 @@ export function Hero() {
           </div>
           
           {/* Right content - Dashboard mockup */}
-          <div className="relative">
+          <div className="relative 2xl:scale-110 2xl:origin-center">
             <div className="relative bg-dark-orchid rounded-2xl shadow-2xl overflow-hidden">
               {/* Browser bar */}
               <div className="flex items-center gap-2 px-4 py-3 bg-dark-orchid/90 border-b border-white/10">
@@ -303,8 +327,19 @@ export function Hero() {
                 </div>
               </div>
             </div>
+            
           </div>
         </div>
+      </div>
+      
+      {/* Wave divider at bottom */}
+      <div className="absolute bottom-0 left-0 right-0 z-10">
+        <svg className="w-full h-16 md:h-24" viewBox="0 0 1440 100" preserveAspectRatio="none" fill="none">
+          <path 
+            d="M0,40 C320,100 420,0 720,50 C1020,100 1120,20 1440,60 L1440,100 L0,100 Z" 
+            className="fill-white"
+          />
+        </svg>
       </div>
     </section>
   );

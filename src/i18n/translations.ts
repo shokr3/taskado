@@ -67,7 +67,7 @@ export const translations = {
     fiscalization: {
       title: { hr: 'Fiskalizacija 2.0', en: 'Fiscalization 2.0' },
       description: { 
-        hr: 'Potpuna integracija s FINA sustavom. Automatizirano izdavanje računa u skladu s hrvatskim propisima.', 
+        hr: 'Automatizirano izdavanje računa u skladu s hrvatskim propisima putem odabranog posrednika.', 
         en: 'Full integration with FINA system. Automated invoicing compliant with Croatian regulations.' 
       },
     },
@@ -92,7 +92,7 @@ export const translations = {
   // Fiscalization Highlight
   fiscal: {
     badge: { hr: 'POSEBNO ZA HRVATSKO TRŽIŠTE', en: 'SPECIAL FOR CROATIAN MARKET' },
-    title: { hr: 'FISKALIZACIJA 2.0 INTEGRIRANA', en: 'FISCALIZATION 2.0 INTEGRATED' },
+    title: { hr: 'INTEGRIRANA 2.0 FISKALIZACIJA', en: 'INTEGRATED 2.0 FISCALIZATION' },
     subtitle: { 
       hr: 'Jedino rješenje koje vam treba za potpunu usklađenost s hrvatskim fiskalnim propisima.', 
       en: 'The only solution you need for full compliance with Croatian fiscal regulations.' 
@@ -101,9 +101,9 @@ export const translations = {
       invoices: { hr: 'B2B i B2C računi', en: 'B2B and B2C invoices' },
       payments: { hr: 'Svi načini plaćanja', en: 'All payment methods' },
       vat: { hr: 'Svi PDV razredi', en: 'All VAT rates' },
-      qr: { hr: 'QR kod automatski', en: 'Automatic QR codes' },
+      qr: { hr: 'Automatsko generiranje QR kodova', en: 'Automatic QR code generation' },
       offline: { hr: 'Offline podrška', en: 'Offline support' },
-      fina: { hr: 'FINA integracija', en: 'FINA integration' },
+      fina: { hr: 'Integracija odabranog posrednika', en: 'Integration with chosen provider' },
     },
   },
   
@@ -120,7 +120,7 @@ export const translations = {
       photos: { hr: 'Dodavanje slika', en: 'Add photos' },
       materials: { hr: 'Evidencija materijala', en: 'Material tracking' },
       location: { hr: 'GPS praćenje', en: 'GPS tracking' },
-      offline: { hr: 'Radi offline', en: 'Works offline' },
+      offline: { hr: 'Podrška za offline mod', en: 'Offline mode support' },
       sync: { hr: 'Automatska sinkronizacija', en: 'Auto sync' },
     },
     stores: {
