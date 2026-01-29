@@ -1,0 +1,95 @@
+name: Build and Deploy to GKE
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+env:
+  PROJECT_ID: taskado-477909
+  REGION: europe-west4
+  REGISTRY: europe-west4-docker.pkg.dev
+  REPOSITORY: taskado-prod
+  IMAGE_NAME: taskado_landing
+  GKE_CLUSTER: taskado-cluster  # Change to your cluster name
+  GKE_ZONE: europe-west4-a      # Change to your zone
+  DEPLOYMENT_NAME: landing-page
+  NAMESPACE: production
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: read
+      id-token: write
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+      
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+      
+      - name: Configure Docker
+        run: |
+          gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev
+      
+      - name: Install gke-gcloud-auth-plugin
+        run: |
+          gcloud components install gke-gcloud-auth-plugin
+      
+      - name: Generate tags
+        id: tags
+        run: |
+          SHORT_SHA=$(echo ${{ github.sha }} | cut -c1-7)
+          echo "short_sha=${SHORT_SHA}" >> $GITHUB_OUTPUT
+          echo "image_tag=${{ env.REGISTRY }}/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.IMAGE_NAME }}" >> $GITHUB_OUTPUT
+      
+      - name: Build Docker image
+        run: |
+          docker build \
+            -f Dockerfile-prod \
+            -t ${{ steps.tags.outputs.image_tag }}:${{ steps.tags.outputs.short_sha }} \
+            -t ${{ steps.tags.outputs.image_tag }}:latest \
+            --cache-from ${{ steps.tags.outputs.image_tag }}:latest \
+            --build-arg BUILDKIT_INLINE_CACHE=1 \
+            .
+      
+      - name: Push images
+        run: |
+          docker push ${{ steps.tags.outputs.image_tag }}:${{ steps.tags.outputs.short_sha }}
+          docker push ${{ steps.tags.outputs.image_tag }}:latest
+      
+      - name: Get GKE credentials
+        run: |
+          gcloud container clusters get-credentials ${{ env.GKE_CLUSTER }} \
+            --zone=${{ env.GKE_ZONE }} \
+            --project=${{ env.PROJECT_ID }}
+      
+      - name: Deploy to GKE
+        run: |
+          kubectl set image deployment/${{ env.DEPLOYMENT_NAME }} \
+            ${{ env.DEPLOYMENT_NAME }}=${{ steps.tags.outputs.image_tag }}:${{ steps.tags.outputs.short_sha }} \
+            --namespace=${{ env.NAMESPACE }} \
+            --record
+      
+      - name: Verify deployment
+        run: |
+          kubectl rollout status deployment/${{ env.DEPLOYMENT_NAME }} \
+            --namespace=${{ env.NAMESPACE }} \
+            --timeout=5m
+      
+      - name: Output deployment info
+        run: |
+          echo "🚀 Deployment successful!"
+          echo "Image: ${{ steps.tags.outputs.image_tag }}:${{ steps.tags.outputs.short_sha }}"
+          echo "Namespace: ${{ env.NAMESPACE }}"
+          echo "Deployment: ${{ env.DEPLOYMENT_NAME }}"
