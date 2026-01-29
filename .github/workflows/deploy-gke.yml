@@ -13,10 +13,10 @@ env:
   REGISTRY: europe-west4-docker.pkg.dev
   REPOSITORY: taskado-prod
   IMAGE_NAME: taskado_landing
-  GKE_CLUSTER: taskado-cluster  # Change to your cluster name
-  GKE_ZONE: europe-west4-a      # Change to your zone
+  GKE_CLUSTER: cluster-prod
+  GKE_REGION: europe-west4
   DEPLOYMENT_NAME: landing-page
-  NAMESPACE: production
+  NAMESPACE: default
 
 jobs:
   build-and-deploy:
@@ -71,13 +71,13 @@ jobs:
       - name: Get GKE credentials
         run: |
           gcloud container clusters get-credentials ${{ env.GKE_CLUSTER }} \
-            --zone=${{ env.GKE_ZONE }} \
+            --region=${{ env.GKE_REGION }} \
             --project=${{ env.PROJECT_ID }}
       
       - name: Deploy to GKE
         run: |
           kubectl set image deployment/${{ env.DEPLOYMENT_NAME }} \
-            ${{ env.DEPLOYMENT_NAME }}=${{ steps.tags.outputs.image_tag }}:${{ steps.tags.outputs.short_sha }} \
+            client=${{ steps.tags.outputs.image_tag }}:${{ steps.tags.outputs.short_sha }} \
             --namespace=${{ env.NAMESPACE }} \
             --record
       
