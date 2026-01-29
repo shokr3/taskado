@@ -1,0 +1,7 @@
+# Robots.txt for Taskado Landing Page
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://taskado.app/sitemap.xml
