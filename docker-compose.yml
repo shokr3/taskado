@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  # Development service
+  landing-page-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: landing-page-dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    profiles:
+      - dev
+
+  # Production service
+  landing-page-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile-prod
+    container_name: landing-page-prod
+    ports:
+      - "8080:80"
+    profiles:
+      - prod
