@@ -5,8 +5,8 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   
-  // Base path for production (nginx serves from /landing-page)
-  base: process.env.NODE_ENV === 'production' ? '/landing-page/' : '/',
+  // Base path - serve from root
+  base: '/',
   
   // Server config for Docker
   server: {

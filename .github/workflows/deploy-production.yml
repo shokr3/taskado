@@ -14,7 +14,10 @@ env:
   REGISTRY: europe-west4-docker.pkg.dev
   REPOSITORY: taskado-prod
   IMAGE_NAME: taskado_landing
-  SERVICE_NAME: landing-page
+  GKE_CLUSTER: cluster-prod
+  GKE_REGION: europe-west4
+  DEPLOYMENT_NAME: landing-page
+  NAMESPACE: default
 
 jobs:
   build-and-deploy:
@@ -69,28 +72,37 @@ jobs:
           docker push ${{ steps.tags.outputs.image_tag }}:${{ steps.tags.outputs.short_sha }}
           docker push ${{ steps.tags.outputs.image_tag }}:latest
       
-      # Step 8: Deploy to Cloud Run
-      - name: Deploy to Cloud Run
+      # Step 8: Install gke-gcloud-auth-plugin
+      - name: Install GKE auth plugin
         run: |
-          gcloud run deploy ${{ env.SERVICE_NAME }} \
-            --image=${{ steps.tags.outputs.image_tag }}:${{ steps.tags.outputs.short_sha }} \
-            --region=${{ env.REGION }} \
-            --platform=managed \
-            --allow-unauthenticated \
-            --port=80 \
-            --max-instances=10 \
-            --min-instances=1 \
-            --cpu=1 \
-            --memory=512Mi \
-            --timeout=300 \
-            --set-env-vars=NODE_ENV=production
+          gcloud components install gke-gcloud-auth-plugin --quiet
       
-      # Step 9: Output service URL
-      - name: Get service URL
+      # Step 9: Get GKE credentials
+      - name: Get GKE credentials
         run: |
-          SERVICE_URL=$(gcloud run services describe ${{ env.SERVICE_NAME }} \
-            --region=${{ env.REGION }} \
-            --format='value(status.url)')
+          gcloud container clusters get-credentials ${{ env.GKE_CLUSTER }} \
+            --region=${{ env.GKE_REGION }} \
+            --project=${{ env.PROJECT_ID }}
+      
+      # Step 10: Deploy to GKE
+      - name: Update GKE deployment
+        run: |
+          kubectl set image deployment/${{ env.DEPLOYMENT_NAME }} \
+            client=${{ steps.tags.outputs.image_tag }}:${{ steps.tags.outputs.short_sha }} \
+            --namespace=${{ env.NAMESPACE }} \
+            --record
+      
+      # Step 11: Verify deployment rollout
+      - name: Verify deployment
+        run: |
+          kubectl rollout status deployment/${{ env.DEPLOYMENT_NAME }} \
+            --namespace=${{ env.NAMESPACE }} \
+            --timeout=5m
+      
+      # Step 12: Output deployment info
+      - name: Deployment summary
+        run: |
           echo "🚀 Deployment successful!"
-          echo "Service URL: ${SERVICE_URL}"
           echo "Image: ${{ steps.tags.outputs.image_tag }}:${{ steps.tags.outputs.short_sha }}"
+          echo "Namespace: ${{ env.NAMESPACE }}"
+          echo "Deployment: ${{ env.DEPLOYMENT_NAME }}"
