@@ -35,37 +35,27 @@ steps:
     waitFor:
       - 'build'
 
-  # Step 4: Deploy to Kubernetes - Update deployment with new image
-  - name: 'gcr.io/cloud-builders/kubectl'
-    id: 'deploy'
+  # Step 4: Deploy to Cloud Run
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: 'deploy-cloudrun'
     args:
-      - 'set'
-      - 'image'
-      - 'deployment/landing-page'
-      - 'landing-page=europe-west4-docker.pkg.dev/taskado-477909/taskado-prod/taskado_landing:${SHORT_SHA}'
-      - '--namespace=production'
-      - '--record'
-    env:
-      - 'CLOUDSDK_COMPUTE_REGION=europe-west4'
-      - 'CLOUDSDK_CONTAINER_CLUSTER=${_GKE_CLUSTER}'
+      - 'run'
+      - 'deploy'
+      - '${_SERVICE_NAME}'
+      - '--image=europe-west4-docker.pkg.dev/taskado-477909/taskado-prod/taskado_landing:${SHORT_SHA}'
+      - '--region=${_REGION}'
+      - '--platform=managed'
+      - '--allow-unauthenticated'
+      - '--port=80'
+      - '--max-instances=10'
+      - '--min-instances=1'
+      - '--cpu=1'
+      - '--memory=512Mi'
+      - '--timeout=300'
+      - '--set-env-vars=NODE_ENV=production'
     waitFor:
       - 'push-hash'
       - 'push-latest'
-
-  # Step 5: Verify deployment rollout
-  - name: 'gcr.io/cloud-builders/kubectl'
-    id: 'verify-deployment'
-    args:
-      - 'rollout'
-      - 'status'
-      - 'deployment/landing-page'
-      - '--namespace=production'
-      - '--timeout=5m'
-    env:
-      - 'CLOUDSDK_COMPUTE_REGION=europe-west4'
-      - 'CLOUDSDK_CONTAINER_CLUSTER=${_GKE_CLUSTER}'
-    waitFor:
-      - 'deploy'
 
 # Images to be pushed to Artifact Registry
 images:
@@ -81,19 +71,18 @@ options:
 # Timeout for entire build
 timeout: 1800s
 
-# Substitutions (optional - for manual triggers)
+# Substitutions
 substitutions:
   _REGISTRY: 'europe-west4-docker.pkg.dev'
   _PROJECT_ID: 'taskado-477909'
   _REPO: 'taskado-prod'
   _IMAGE: 'taskado_landing'
-  _GKE_CLUSTER: 'taskado-cluster'  # Replace with your GKE cluster name
-  _GKE_ZONE: 'europe-west4-a'      # Replace with your GKE zone
-  _DEPLOYMENT_NAME: 'landing-page'
-  _NAMESPACE: 'production'
+  _SERVICE_NAME: 'landing-page'
+  _REGION: 'europe-west4'
 
 # Tags for organizing builds
 tags:
   - 'landing-page'
   - 'production'
+  - 'cloud-run'
   - '${SHORT_SHA}'
