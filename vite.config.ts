@@ -5,8 +5,8 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   
-  // Base path - HTTPRoute strips /landing-page prefix, serve from root
-  base: '/',
+  // Base path for production - assets need /landing-page/ prefix for browser
+  base: process.env.NODE_ENV === 'production' ? '/landing-page/' : '/',
   
   // Server config for Docker
   server: {
