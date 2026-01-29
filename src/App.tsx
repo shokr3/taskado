@@ -6,7 +6,9 @@ import { MobileApp } from './components/MobileApp';
 import { AISection } from './components/AISection';
 import { Pricing } from './components/Pricing';
 // import { Testimonials } from './components/Testimonials';
+import { TrustBadges } from './components/TrustBadges';
 import { Contact } from './components/Contact';
+import { EnterpriseBanner } from './components/EnterpriseBanner';
 import { Footer } from './components/Footer';
 
 function App() {
@@ -21,7 +23,9 @@ function App() {
         <AISection />
         {/* <Testimonials /> */}
         <Pricing />
+        <TrustBadges />
         <Contact />
+        <EnterpriseBanner />
       </main>
       <Footer />
     </div>

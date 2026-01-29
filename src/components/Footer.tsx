@@ -1,7 +1,7 @@
 import { useLanguage } from '../i18n/LanguageContext';
 
 export function Footer() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <footer className="bg-dark-orchid pt-16 pb-8">
@@ -89,6 +89,73 @@ export function Footer() {
                 </a>
               </li>
             </ul>
+          </div>
+        </div>
+        
+        {/* Certifications */}
+        <div className="border-t border-white/10 pt-8 mb-8">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <span className="text-light-sand/60 text-sm">{language === 'hr' ? 'Certificirani po standardima:' : 'Certified by standards:'}</span>
+            <div className="flex items-center gap-6">
+              <img src="/iso-27001.png" alt="ISO 27001 Certification" className="h-16 md:h-20 object-contain" />
+              <img src="/iso-20000.webp" alt="ISO 20000 Certification" className="h-16 md:h-20 object-contain" />
+            </div>
+          </div>
+        </div>
+        
+        {/* Developer company info */}
+        <div className="border-t border-white/10 pt-8 mb-8">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            {/* Left - Developed by */}
+            <div className="text-center md:text-left">
+              <p className="text-light-sand/40 text-xs uppercase tracking-wider mb-3">{language === 'hr' ? 'Razvio' : 'Developed by'}</p>
+              <a 
+                href="https://www.knowit.hr" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block hover:opacity-80 transition-opacity"
+              >
+                <img src="/knowit-logo.png" alt="KnowIT" className="h-12 md:h-14" />
+              </a>
+              <p className="text-light-sand/60 text-sm mt-3">
+                KNOW INFORMACIJSKE TEHNOLOGIJE d.o.o.
+              </p>
+            </div>
+            
+            {/* Right - Company details */}
+            <div className="flex flex-wrap justify-center md:justify-end gap-x-8 gap-y-3 text-sm">
+              <div className="flex items-center gap-2 text-light-sand/70">
+                <svg className="w-4 h-4 text-light-sand/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <span>Radnička cesta 1A, 10000 Zagreb</span>
+              </div>
+              <div className="flex items-center gap-2 text-light-sand/70">
+                <svg className="w-4 h-4 text-light-sand/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                <span>OIB: 82703315852</span>
+              </div>
+              <a href="tel:+385953873879" className="flex items-center gap-2 text-light-sand/70 hover:text-white transition-colors">
+                <svg className="w-4 h-4 text-light-sand/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <span>+385 95 387 3879</span>
+              </a>
+              <a href="mailto:info@knowit.hr" className="flex items-center gap-2 text-light-sand/70 hover:text-white transition-colors">
+                <svg className="w-4 h-4 text-light-sand/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <span>info@knowit.hr</span>
+              </a>
+              <a href="https://www.knowit.hr" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-light-sand/70 hover:text-white transition-colors">
+                <svg className="w-4 h-4 text-light-sand/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                </svg>
+                <span>www.knowit.hr</span>
+              </a>
+            </div>
           </div>
         </div>
         

@@ -1,7 +1,23 @@
 import { useLanguage } from '../i18n/LanguageContext';
 
 export function Pricing() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+
+  const features = language === 'hr' ? [
+    'Uključeni svi moduli',
+    'Neograničen broj projekata',
+    'Neograničen broj zadataka',
+    'Mobilna aplikacija',
+    'Fiskalizacija 2.0',
+    'Podrška 24/7',
+  ] : [
+    'All modules included',
+    'Unlimited projects',
+    'Unlimited tasks',
+    'Mobile application',
+    'Fiscalization 2.0',
+    '24/7 Support',
+  ];
 
   return (
     <section id="pricing" className="py-20 md:py-32 bg-light-sand/30">
@@ -30,14 +46,7 @@ export function Pricing() {
             {/* Features */}
             <div className="p-8">
               <ul className="space-y-4 mb-8">
-                {[
-                  'Svi moduli uključeni',
-                  'Neograničen broj projekata',
-                  'Neograničen broj zadataka',
-                  'Mobilna aplikacija',
-                  'Fiskalizacija 2.0',
-                  'E-mail podrška',
-                ].map((feature, index) => (
+                {features.map((feature, index) => (
                   <li key={index} className="flex items-center gap-3">
                     <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
                       <svg className="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
