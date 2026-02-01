@@ -23,7 +23,7 @@ export function TrustBadges() {
           <div className="flex items-center gap-6 md:gap-8">
             <div className="flex flex-col items-center">
               <img 
-                src="/iso-27001.png" 
+                src="/landing-page/iso-27001.png" 
                 alt="ISO 27001 - Information Security" 
                 className="h-20 md:h-24 object-contain"
               />
@@ -31,7 +31,7 @@ export function TrustBadges() {
             </div>
             <div className="flex flex-col items-center">
               <img 
-                src="/iso-20000.webp" 
+                src="/landing-page/iso-20000.webp" 
                 alt="ISO 20000 - IT Service Management" 
                 className="h-20 md:h-24 object-contain"
               />

@@ -11,7 +11,7 @@ export function Navbar() {
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo - switches to white version in dark mode */}
           <a href="#" className="flex items-center">
-            <img src="/logo.png" alt="Taskado" className="h-8 md:h-10 dark:hidden" />
+            <img src="/landing-page/logo.png" alt="Taskado" className="h-8 md:h-10 dark:hidden" />
             <img src="/logo-white.png" alt="Taskado" className="h-8 md:h-10 hidden dark:block" />
           </a>
 

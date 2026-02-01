@@ -97,8 +97,8 @@ export function Footer() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <span className="text-light-sand/60 text-sm">{language === 'hr' ? 'Certificirani po standardima:' : 'Certified by standards:'}</span>
             <div className="flex items-center gap-6">
-              <img src="/iso-27001.png" alt="ISO 27001 Certification" className="h-16 md:h-20 object-contain" />
-              <img src="/iso-20000.webp" alt="ISO 20000 Certification" className="h-16 md:h-20 object-contain" />
+              <img src="/landing-page/iso-27001.png" alt="ISO 27001 Certification" className="h-16 md:h-20 object-contain" />
+              <img src="/landing-page/iso-20000.webp" alt="ISO 20000 Certification" className="h-16 md:h-20 object-contain" />
             </div>
           </div>
         </div>
@@ -115,7 +115,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="inline-block hover:opacity-80 transition-opacity"
               >
-                <img src="/knowit-logo.png" alt="KnowIT" className="h-12 md:h-14" />
+                <img src="/landing-page/knowit-logo.png" alt="KnowIT" className="h-12 md:h-14" />
               </a>
               <p className="text-light-sand/60 text-sm mt-3">
                 KNOW INFORMACIJSKE TEHNOLOGIJE d.o.o.
