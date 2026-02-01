@@ -48,7 +48,7 @@ export function Fiscalization() {
               <div className="bg-white rounded-xl p-6 shadow-xl">
                 <div className="flex justify-between items-start mb-6">
                   <div>
-                    <img src="/landing-page/logo.png" alt="Taskado" className="h-6 mb-2" />
+                    <img src="./logo.png" alt="Taskado" className="h-6 mb-2" />
                     <div className="text-xs text-dark-orchid/60">Fiskalni račun br. R1-123/1/1</div>
                   </div>
                   <div className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold">

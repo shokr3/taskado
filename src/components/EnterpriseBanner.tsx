@@ -62,7 +62,7 @@ export function EnterpriseBanner() {
           
           {/* Right - Logo and CTA */}
           <div className="flex flex-col items-center gap-6">
-            <img src="/landing-page/task-logo.png" alt="Task" className="h-24 md:h-32 w-auto" />
+            <img src="./task-logo.png" alt="Task" className="h-24 md:h-32 w-auto" />
             
             <a 
               href="https://www.knowit.hr" 
