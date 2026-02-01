@@ -9,7 +9,7 @@ export function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Logo and description */}
           <div className="lg:col-span-1">
-            <img src="/logo-white.png" alt="Taskado" className="h-8 mb-4" />
+            <img src="/landing-page/logo-white.png" alt="Taskado" className="h-8 mb-4" />
             <p className="text-light-sand/70 text-sm font-figtree">
               {t('footer.description')}
             </p>

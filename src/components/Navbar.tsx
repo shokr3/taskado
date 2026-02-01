@@ -12,7 +12,7 @@ export function Navbar() {
           {/* Logo - switches to white version in dark mode */}
           <a href="#" className="flex items-center">
             <img src="/landing-page/logo.png" alt="Taskado" className="h-8 md:h-10 dark:hidden" />
-            <img src="/logo-white.png" alt="Taskado" className="h-8 md:h-10 hidden dark:block" />
+            <img src="/landing-page/logo-white.png" alt="Taskado" className="h-8 md:h-10 hidden dark:block" />
           </a>
 
           {/* Desktop Navigation */}
