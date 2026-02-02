@@ -28,17 +28,17 @@ docker build -t landing-page-prod -f Dockerfile-prod .
 docker run -p 8080:80 landing-page-prod
 ```
 
-Landing page će biti dostupan na: http://localhost:8080/landing-page
+Landing page će biti dostupan na: http://localhost:8080/
 
 ### Multi-stage build proces:
 1. **Stage 1 (Builder)**: Buildanje React aplikacije sa npm run build
-2. **Stage 2 (Nginx)**: Kopiranje build fileova u `/usr/share/nginx/html/landing-page`
+2. **Stage 2 (Nginx)**: Kopiranje build fileova u `/usr/share/nginx/html`
 
 ### Nginx konfiguracija:
 - Gzip compression omogućen
 - SPA routing podrška (try_files za client-side routing)
 - Caching statickih assetsa (1 godina)
-- Landing page se servira iz `/landing-page` path-a
+- Landing page se servira iz root path-a (`/`)
 
 ## Deployment
 
@@ -57,9 +57,7 @@ docker push your-registry/taskado-landing-page:latest
 
 ## Environment Variables
 
-Za Contact formu (ako backend postoji):
-- `VITE_API_URL` - URL do backend API-ja
-- `MAILJET_API_KEY` - Mailjet API ključ (za backend)
-- `MAILJET_SECRET_KEY` - Mailjet secret (za backend)
+Za Contact formu:
+- `VITE_WEB3FORMS_ACCESS_KEY` - Web3Forms Access Key (za slanje emailova)
 
-Dodaj ih u `.env` file ili docker-compose.yml.
+Dodaj ih u `.env.local` file (za development) ili kao build argument (za production).

@@ -5,7 +5,11 @@ export function Navbar() {
   const { language, setLanguage, t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const loginUrl = '/login'
+  // Determine login URL based on environment
+  const isProduction = window.location.hostname === 'taskado.app';
+  const loginUrl = isProduction 
+    ? 'https://taskado.app/app/login' 
+    : 'http://localhost:5555/app/login';
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-neutral-grey">
