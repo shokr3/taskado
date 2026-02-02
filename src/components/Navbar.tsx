@@ -5,6 +5,8 @@ export function Navbar() {
   const { language, setLanguage, t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const loginUrl = '/login'
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-neutral-grey">
       <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -54,8 +56,7 @@ export function Navbar() {
             </div>
             
             <a 
-              href="https://knowit.systems/taskado-stage/login" 
-              target="_blank"
+              href={loginUrl}
               className="text-dark-orchid hover:text-high-blue transition-colors font-medium"
             >
               {t('nav.login')}
@@ -117,6 +118,14 @@ export function Navbar() {
                   English
                 </button>
               </div>
+              
+              <a 
+                href={loginUrl}
+                className="text-dark-orchid font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {t('nav.login')}
+              </a>
               
               <a 
                 href="#contact" 
