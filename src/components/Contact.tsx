@@ -15,7 +15,20 @@ export function Contact() {
     setError(null);
     
     const formData = new FormData(e.currentTarget);
+    
+    // Add Web3Forms access key
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+    
+    if (!accessKey) {
+      setError('Web3Forms nije konfiguriran. Molimo kontaktirajte nas direktno na taskado@knowit.tech');
+      setIsSubmitting(false);
+      return;
+    }
+
     const data = {
+      access_key: accessKey,
+      subject: `Zahtjev za demo - ${formData.get('name')} (${formData.get('company')})`,
+      from_name: 'Taskado Landing Page',
       name: formData.get('name'),
       email: formData.get('email'),
       company: formData.get('company'),
@@ -24,7 +37,7 @@ export function Contact() {
     };
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -32,13 +45,16 @@ export function Contact() {
         body: JSON.stringify(data),
       });
 
-      if (!response.ok) {
-        throw new Error('Failed to send message');
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Failed to send message');
       }
 
       setIsSubmitted(true);
     } catch (err) {
-      setError('Došlo je do greške. Molimo pokušajte ponovno ili nas kontaktirajte direktno.');
+      console.error('Form submission error:', err);
+      setError('Došlo je do greške. Molimo pokušajte ponovno ili nas kontaktirajte direktno na taskado@knowit.tech');
     } finally {
       setIsSubmitting(false);
     }

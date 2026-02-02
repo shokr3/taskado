@@ -62,6 +62,7 @@ jobs:
             -t ${{ steps.tags.outputs.image_tag }}:latest \
             --cache-from ${{ steps.tags.outputs.image_tag }}:latest \
             --build-arg BUILDKIT_INLINE_CACHE=1 \
+            --build-arg VITE_WEB3FORMS_ACCESS_KEY=${{ secrets.WEB3FORMS_ACCESS_KEY }} \
             .
       
       # Step 7: Push images to Artifact Registry
