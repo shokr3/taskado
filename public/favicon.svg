@@ -1,4 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="6" fill="#2727F4"/>
-  <text x="16" y="24" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle">T</text>
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- White background for visibility on all backgrounds -->
+  <rect width="32" height="32" rx="6" fill="white"/>
+  <!-- Taskado logo mark scaled to fit 32x32 with padding -->
+  <svg x="3" y="3" width="26" height="26" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M37.7256 0L26.7627 0L23.0023 0.0914054L2.27445 0.0914054C1.01592 0.0914054 0 1.11211 0 2.37656L0 13.3301C0 14.5945 1.01592 15.6152 2.27445 15.6152L24.5489 15.6152L24.5489 36.7148C24.5489 37.9793 25.5648 39 26.8234 39H37.7256C38.9841 39 40 37.9793 40 36.7148L40 2.28516C40 1.0207 38.9841 0 37.7256 0Z" fill="#2727F4"/>
+  </svg>
 </svg>
