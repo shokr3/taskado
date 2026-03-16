@@ -52,6 +52,7 @@ export function Contact() {
       }
 
       setIsSubmitted(true);
+      (window as Window & { gtag_report_conversion?: () => void }).gtag_report_conversion?.();
     } catch (err) {
       console.error('Form submission error:', err);
       setError('Došlo je do greške. Molimo pokušajte ponovno ili nas kontaktirajte direktno na taskado@knowit.tech');

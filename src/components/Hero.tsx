@@ -52,6 +52,7 @@ export function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-6">
               <a 
                 href="#contact" 
+                onClick={() => (window as Window & { gtag_report_conversion?: () => void }).gtag_report_conversion?.()}
                 className="btn-primary px-8 py-4 2xl:px-10 2xl:py-5 rounded-xl font-semibold text-lg 2xl:text-xl inline-flex items-center justify-center gap-2"
               >
                 {t('hero.cta')}
@@ -62,6 +63,7 @@ export function Hero() {
               
               <a 
                 href="#contact" 
+                onClick={() => (window as Window & { gtag_report_conversion?: () => void }).gtag_report_conversion?.()}
                 className="px-8 py-4 2xl:px-10 2xl:py-5 rounded-xl font-semibold text-lg 2xl:text-xl border-2 border-dark-orchid text-dark-orchid hover:bg-dark-orchid hover:text-white transition-all inline-flex items-center justify-center gap-2"
               >
                 {t('hero.ctaSecondary')}

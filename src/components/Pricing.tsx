@@ -60,6 +60,7 @@ export function Pricing() {
               
               <a 
                 href="#contact" 
+                onClick={() => (window as Window & { gtag_report_conversion?: () => void }).gtag_report_conversion?.()}
                 className="block w-full btn-primary py-4 rounded-xl font-semibold text-lg text-center mb-4"
               >
                 {t('pricing.cta')}
