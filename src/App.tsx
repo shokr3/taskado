@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import type { FormEvent } from "react";
 import { useLanguage } from "./i18n/LanguageContext";
 import { Icon } from "./redesign/Icon";
-import { ProductDemo } from "./redesign/ProductDemo";
+import { ProductShowcase } from "./redesign/ProductShowcase";
 
 function App() {
   const { language, setLanguage } = useLanguage();
@@ -67,8 +67,8 @@ function App() {
     document.documentElement.lang = language;
     document.title =
       language === "hr"
-        ? "Taskado — Upravljanje poslovanjem u jednom sustavu"
-        : "Taskado — Business management in one platform";
+        ? "Taskado — Poslovanje u punom pogonu"
+        : "Taskado — Your business in full flow";
     document
       .querySelector('meta[name="description"]')
       ?.setAttribute(
@@ -226,21 +226,21 @@ function App() {
             <div className="eyebrow">
               <span className="blue-dot" />{" "}
               {b(
-                "POSLOVNI SOFTVER ZA HRVATSKA PODUZEĆA",
-                "BUSINESS SOFTWARE FOR CROATIAN COMPANIES",
+                "POVEZANO POSLOVANJE. RAZVIJENO U HRVATSKOJ.",
+                "CONNECTED BUSINESS. BUILT IN CROATIA.",
               )}
             </div>
             <h1>
-              {b("Upravljanje poslovanjem", "Business management")}
+              {b("Poslovanje", "Your business")}
               <br />
               <span className="accent-word">
-                {b("u jednom sustavu.", "in one platform.")}
+                {b("u punom pogonu.", "in full flow.")}
               </span>
             </h1>
             <p className="hero-description">
               {b(
-                "Objedinite projekte, radne naloge, terenske timove i račune u jednom sustavu. Taskado uključuje Fiskalizaciju 1.0 i 2.0 kao standardne funkcionalnosti za poslovanje na hrvatskom tržištu.",
-                "Manage projects, work orders, field teams, and invoices in one system. Taskado includes Fiscalization 1.0 and 2.0 as standard capabilities for businesses operating in Croatia.",
+                "Povežite planiranje, terenski rad i naplatu u jedan operativni tijek. Upravljajte projektima, timovima i računima uz ugrađenu Fiskalizaciju 1.0 i 2.0.",
+                "Connect planning, field operations, and billing in one continuous workflow. Manage projects, teams, and invoices with built-in Fiscalization 1.0 and 2.0.",
               )}
             </p>
             <div className="hero-actions">
@@ -270,13 +270,13 @@ function App() {
               </span>
             </div>
           </div>
-          <ProductDemo />
+          <ProductShowcase />
         </section>
         <div className="capability-strip shell">
           <span>
             {b(
-              "INTEGRIRANO UPRAVLJANJE POSLOVANJEM",
-              "INTEGRATED BUSINESS MANAGEMENT",
+              "OD PRVOG ZADATKA DO RAČUNA",
+              "FROM THE FIRST TASK TO THE INVOICE",
             )}
           </span>
           <div>
@@ -297,189 +297,88 @@ function App() {
             ))}
           </div>
         </div>
-        <section className="fiscal-section shell" id="fiscalization">
-          <div className="fiscal-visual">
-            <div className="receipt">
-              <span className="tiny muted">
-                TASKADO / {b("PRIMJER RAČUNA", "SAMPLE INVOICE")}
-              </span>
-              <div className="receipt-title">
-                <Icon name="document" size={30} />
-                <span>#2026–042</span>
-              </div>
-              <div className="receipt-line" />
-              <div className="receipt-line short" />
-              <div className="receipt-row">
-                <span>{b("Ukupno", "Total")}</span>
-                <strong>300,00 €</strong>
-              </div>
-              <div className="receipt-confirm">
-                <Icon name="check" size={15} />
-                {b("Povezano s radnim nalogom", "Linked to a work order")}
-              </div>
-            </div>
-            <div className="fiscal-seal">
-              <Icon name="shield" size={26} />
-              <span>1.0 + 2.0</span>
-            </div>
-          </div>
-          <div className="fiscal-copy">
-            <div className="eyebrow">
-              <span className="flag-croatia" />
-              {b(
-                "RAZVIJENO ZA HRVATSKO POSLOVANJE",
-                "BUILT FOR CROATIAN BUSINESSES",
-              )}
-            </div>
-            <h2>
-              {b("Fiskalizacija 1.0 i 2.0", "Fiscalization 1.0 and 2.0")}
-              <br />
-              {b("u jednom rješenju.", "in one platform.")}
-            </h2>
-            <p>
-              {b(
-                "Fiskalizacija je sastavni dio Taskada, dostupna kao standardna funkcionalnost. Povežite izdavanje računa i eRačuna s projektima, izvršenim radnim nalozima i evidencijom usluga.",
-                "Fiscalization is built into Taskado and included as standard. Connect invoices and e-invoices with projects, completed work orders, and service records.",
-              )}
-            </p>
-            <div className="fiscal-capabilities">
-              <article>
-                <span className="fiscal-version">1.0</span>
-                <div>
-                  <h3>
-                    {b(
-                      "Fiskalizacija u krajnjoj potrošnji",
-                      "Fiscalization for final consumption",
-                    )}
-                  </h3>
-                  <p>
-                    {b(
-                      "Izdavanje i fiskalizacija računa prema građanima, povezani s evidencijom obavljenih usluga.",
-                      "Issue and fiscalize consumer invoices, connected to records of completed services.",
-                    )}
-                  </p>
+        <section className="workflow-band" id="workflow">
+          <div className="section workflow shell">
+            <div className="section-top">
+              <div>
+                <div className="eyebrow">
+                  01 /{" "}
+                  {b(
+                    "POVEZANI POSLOVNI PROCESI",
+                    "CONNECTED BUSINESS PROCESSES",
+                  )}
                 </div>
-              </article>
-              <article>
-                <span className="fiscal-version">2.0</span>
-                <div>
-                  <h3>
-                    {b(
-                      "eRačuni i njihova fiskalizacija",
-                      "E-invoices and their fiscalization",
-                    )}
-                  </h3>
-                  <p>
-                    {b(
-                      "Podrška za eRačune i njihovu fiskalizaciju unutar istog poslovnog procesa i korisničkog sučelja.",
-                      "Support for e-invoices and their fiscalization within the same business process and interface.",
-                    )}
-                  </p>
-                </div>
-              </article>
-            </div>
-            <a
-              className="text-button"
-              href="#contact"
-              onClick={() => goContact("demo")}
-            >
-              {b(
-                "Zatražite prezentaciju fiskalizacije",
-                "Request a fiscalization demonstration",
-              )}
-              <Icon />
-            </a>
-            <a
-              className="fiscal-reference"
-              href="https://porezna.gov.hr/fiskalizacija"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {b(
-                "Službene informacije Porezne uprave",
-                "Official Croatian Tax Administration information",
-              )}{" "}
-              ↗
-            </a>
-          </div>
-        </section>
-        <section className="section workflow shell" id="workflow">
-          <div className="section-top">
-            <div>
-              <div className="eyebrow">
-                01 /{" "}
-                {b("POVEZANI POSLOVNI PROCESI", "CONNECTED BUSINESS PROCESSES")}
+                <h2>
+                  {b("Od planiranja", "From planning")}
+                  <br />
+                  {b("do izdanog računa.", "to issued invoices.")}
+                </h2>
               </div>
-              <h2>
-                {b("Od planiranja", "From planning")}
-                <br />
-                {b("do izdanog računa.", "to issued invoices.")}
-              </h2>
+              <p>
+                {b(
+                  "Povežite planiranje, izvršenje i obračun usluga. Jedinstvena evidencija smanjuje ponavljanje unosa i olakšava praćenje svakog koraka poslovnog procesa.",
+                  "Connect planning, execution, and service billing. A shared record reduces duplicate entry and makes every stage of the business process easier to track.",
+                )}
+              </p>
             </div>
-            <p>
-              {b(
-                "Povežite planiranje, izvršenje i obračun usluga. Jedinstvena evidencija smanjuje ponavljanje unosa i olakšava praćenje svakog koraka poslovnog procesa.",
-                "Connect planning, execution, and service billing. A shared record reduces duplicate entry and makes every stage of the business process easier to track.",
-              )}
-            </p>
-          </div>
-          <div className="workflow-grid">
-            {[
-              [
-                "01",
-                "calendar",
-                b("Planiranje i raspored", "Planning and scheduling"),
-                b(
-                  "Rasporedite projekte, zadatke i zaposlenike prema prioritetima i raspoloživim resursima.",
-                  "Schedule projects, tasks, and employees according to priorities and available resources.",
-                ),
-                b("Pregled raspoloživih resursa", "Resource availability"),
-              ],
-              [
-                "02",
-                "phone",
-                b("Izvršenje i evidencija", "Execution and records"),
-                b(
-                  "Pratite status naloga te evidentirajte rad, materijale i fotografije putem mobilne aplikacije.",
-                  "Track work order status and record labour, materials, and photos using the mobile app.",
-                ),
-                b(
-                  "Podaci dostupni uredu i terenu",
-                  "Shared office and field records",
-                ),
-              ],
-              [
-                "03",
-                "document",
-                b(
-                  "Izdavanje i fiskalizacija računa",
-                  "Invoicing and fiscalization",
-                ),
-                b(
-                  "Izradite račun na temelju izvršenog naloga uz ugrađenu podršku za Fiskalizaciju 1.0 i 2.0.",
-                  "Create an invoice from a completed work order with built-in support for Fiscalization 1.0 and 2.0.",
-                ),
-                b(
-                  "Povezan operativni i financijski proces",
-                  "Connected operations and invoicing",
-                ),
-              ],
-            ].map(([n, i, t, d, tag]) => (
-              <article className="workflow-item" key={n}>
-                <div className="workflow-item-top">
-                  <span className="feature-icon">
-                    <Icon name={i} size={25} />
+            <div className="workflow-grid">
+              {[
+                [
+                  "01",
+                  "calendar",
+                  b("Planiranje i raspored", "Planning and scheduling"),
+                  b(
+                    "Rasporedite projekte, zadatke i zaposlenike prema prioritetima i raspoloživim resursima.",
+                    "Schedule projects, tasks, and employees according to priorities and available resources.",
+                  ),
+                  b("Pregled raspoloživih resursa", "Resource availability"),
+                ],
+                [
+                  "02",
+                  "phone",
+                  b("Izvršenje i evidencija", "Execution and records"),
+                  b(
+                    "Pratite status naloga te evidentirajte rad, materijale i fotografije putem mobilne aplikacije.",
+                    "Track work order status and record labour, materials, and photos using the mobile app.",
+                  ),
+                  b(
+                    "Podaci dostupni uredu i terenu",
+                    "Shared office and field records",
+                  ),
+                ],
+                [
+                  "03",
+                  "document",
+                  b(
+                    "Izdavanje i fiskalizacija računa",
+                    "Invoicing and fiscalization",
+                  ),
+                  b(
+                    "Izradite račun na temelju izvršenog naloga uz ugrađenu podršku za Fiskalizaciju 1.0 i 2.0.",
+                    "Create an invoice from a completed work order with built-in support for Fiscalization 1.0 and 2.0.",
+                  ),
+                  b(
+                    "Povezan operativni i financijski proces",
+                    "Connected operations and invoicing",
+                  ),
+                ],
+              ].map(([n, i, t, d, tag]) => (
+                <article className="workflow-item" key={n}>
+                  <div className="workflow-item-top">
+                    <span className="feature-icon">
+                      <Icon name={i} size={25} />
+                    </span>
+                    <span className="step-number">{n}</span>
+                  </div>
+                  <h3>{t}</h3>
+                  <p>{d}</p>
+                  <span className="workflow-tag">
+                    <Icon name="check" size={14} />
+                    {tag}
                   </span>
-                  <span className="step-number">{n}</span>
-                </div>
-                <h3>{t}</h3>
-                <p>{d}</p>
-                <span className="workflow-tag">
-                  <Icon name="check" size={14} />
-                  {tag}
-                </span>
-              </article>
-            ))}
+                </article>
+              ))}
+            </div>
           </div>
         </section>
         <section className="feature-section" id="features">
@@ -847,6 +746,117 @@ function App() {
                 </span>
               </div>
             </div>
+          </div>
+        </section>
+        <section className="fiscal-section shell" id="fiscalization">
+          <div className="fiscal-visual">
+            <span className="fiscal-watermark" aria-hidden="true">
+              1.0
+              <br />
+              2.0
+            </span>
+            <div className="receipt">
+              <span className="tiny muted">
+                TASKADO / {b("PRIMJER RAČUNA", "SAMPLE INVOICE")}
+              </span>
+              <div className="receipt-title">
+                <Icon name="document" size={30} />
+                <span>#2026–042</span>
+              </div>
+              <div className="receipt-line" />
+              <div className="receipt-line short" />
+              <div className="receipt-row">
+                <span>{b("Ukupno", "Total")}</span>
+                <strong>300,00 €</strong>
+              </div>
+              <div className="receipt-confirm">
+                <Icon name="check" size={15} />
+                {b("Povezano s radnim nalogom", "Linked to a work order")}
+              </div>
+            </div>
+            <div className="fiscal-seal">
+              <Icon name="shield" size={26} />
+              <span>1.0 + 2.0</span>
+            </div>
+          </div>
+          <div className="fiscal-copy">
+            <div className="eyebrow">
+              <span className="flag-croatia" />
+              {b(
+                "RAZVIJENO ZA HRVATSKO POSLOVANJE",
+                "BUILT FOR CROATIAN BUSINESSES",
+              )}
+            </div>
+            <h2>
+              {b("Fiskalizacija 1.0 i 2.0", "Fiscalization 1.0 and 2.0")}
+              <br />
+              {b("u jednom rješenju.", "in one platform.")}
+            </h2>
+            <p>
+              {b(
+                "Fiskalizacija je sastavni dio Taskada, dostupna kao standardna funkcionalnost. Povežite izdavanje računa i eRačuna s projektima, izvršenim radnim nalozima i evidencijom usluga.",
+                "Fiscalization is built into Taskado and included as standard. Connect invoices and e-invoices with projects, completed work orders, and service records.",
+              )}
+            </p>
+            <div className="fiscal-capabilities">
+              <article>
+                <span className="fiscal-version">1.0</span>
+                <div>
+                  <h3>
+                    {b(
+                      "Fiskalizacija u krajnjoj potrošnji",
+                      "Fiscalization for final consumption",
+                    )}
+                  </h3>
+                  <p>
+                    {b(
+                      "Izdavanje i fiskalizacija računa prema građanima, povezani s evidencijom obavljenih usluga.",
+                      "Issue and fiscalize consumer invoices, connected to records of completed services.",
+                    )}
+                  </p>
+                </div>
+              </article>
+              <article>
+                <span className="fiscal-version">2.0</span>
+                <div>
+                  <h3>
+                    {b(
+                      "eRačuni i njihova fiskalizacija",
+                      "E-invoices and their fiscalization",
+                    )}
+                  </h3>
+                  <p>
+                    {b(
+                      "Podrška za eRačune i njihovu fiskalizaciju unutar istog poslovnog procesa i korisničkog sučelja.",
+                      "Support for e-invoices and their fiscalization within the same business process and interface.",
+                    )}
+                  </p>
+                </div>
+              </article>
+            </div>
+            <a
+              className="text-button"
+              href="#contact"
+              onClick={() => goContact("demo")}
+            >
+              {b(
+                "Zatražite prezentaciju fiskalizacije",
+                "Request a fiscalization demonstration",
+              )}
+              <Icon />
+            </a>
+            <a
+              className="fiscal-reference"
+              href="https://porezna.gov.hr/fiskalizacija"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {b(
+                "Službene informacije Porezne uprave",
+                "Official Croatian Tax Administration information",
+              )}{" "}
+              ↗
+            </a>
           </div>
         </section>
         <section className="section pricing shell" id="pricing">

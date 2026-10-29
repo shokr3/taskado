@@ -4,14 +4,16 @@ Branch: `codex/taskado-redesign`
 
 ## Design direction
 
-A product-led marketing site positioned as integrated business software for Croatian companies, with Fiscalization 1.0 and 2.0 included as standard. Warm neutral surfaces, cobalt actions, Manrope headings, and compact interface illustrations retain the Taskado brand while giving the page a calmer, more contemporary identity.
+A product-led marketing site positioned as integrated business software for Croatian companies, with Fiscalization 1.0 and 2.0 included as standard. Warm neutral surfaces, oversized Manrope typography, a cobalt operations canvas, and restrained orange accents retain the Taskado brand while giving the page a more distinctive editorial identity.
 
 The visitor journey connects the daily workflow (plan → field work → invoice), feature demonstrations, industry-specific examples, local invoicing, a transparent trial offer, practical FAQs, and a dedicated demo/trial enquiry form. Illustrative product data is identified; no customer logos, testimonials, or performance metrics were invented. AI remains explicitly upcoming. Existing company, enterprise, contact, and login destinations are retained.
 
 ## Main files
 
 - `src/App.tsx`: marketing page, industry tabs, FAQs, and enquiry form.
+- `src/redesign/ProductShowcase.tsx`: connected three-stage product canvas with synchronized controls.
 - `src/redesign/ProductDemo.tsx`: interactive overview, work orders, task completion, and invoice preview.
+- `src/redesign/creative.css`: creative direction, contrasting section layouts, and responsive refinements.
 - `src/redesign/Icon.tsx`: shared SVG icon set.
 - `src/index.css`: responsive visual system, including reduced-motion styles.
 - `src/i18n/LanguageContext.tsx`: language preference persistence.
@@ -46,4 +48,12 @@ Fiscal terminology was checked against the [Croatian Tax Administration overview
 
 ## Headline refinement
 
-The headline now reads “Upravljanje poslovanjem u jednom sustavu.” (English: “Business management in one platform.”). It leads with the broader platform value. Fiscalization 1.0 and 2.0 remain in the supporting copy and dedicated section. Browser, social, and Site titles use the broader positioning.
+The previous headline revision read “Upravljanje poslovanjem u jednom sustavu.” (English: “Business management in one platform.”). It leads with the broader platform value. Fiscalization 1.0 and 2.0 remain in the supporting copy and dedicated section. Browser, social, and Site titles use the broader positioning.
+
+## Creative design revision
+
+The headline is now “Poslovanje u punom pogonu.” (English: “Your business in full flow.”). The design uses an operational-flow concept: visitors select projects, work orders, or invoicing in a custom cobalt canvas, and both sets of preview controls stay synchronized. A dark workflow section, orange scheduling panel, large fiscalization numerals, sharper geometry, and a cobalt contact section create a more varied page composition.
+
+Fiscalization remains part of the broader product story; its detailed section follows the operational features and industry examples. No new product claims, customer references, or performance metrics were added. Croatian and English remain supported. The additional preview controls are ordinary keyboard-operable buttons, and the internal product tabs retain their arrow-key navigation.
+
+Validation covers the synchronized preview controls, work-order completion state, both languages, and responsive widths from 320 to 1440 pixels. Existing form behavior is retained.

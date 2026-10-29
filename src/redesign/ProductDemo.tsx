@@ -2,10 +2,21 @@ import { useState } from "react";
 import { useLanguage } from "../i18n/LanguageContext";
 import { Icon } from "./Icon";
 
-export function ProductDemo() {
+export function ProductDemo({
+  activeTab,
+  onTabChange,
+}: {
+  activeTab?: number;
+  onTabChange?: (tab: number) => void;
+}) {
   const { language } = useLanguage();
   const b = (hr: string, en: string) => (language === "hr" ? hr : en);
-  const [tab, setTab] = useState(0);
+  const [localTab, setLocalTab] = useState(0);
+  const tab = activeTab ?? localTab;
+  const setTab = (next: number) => {
+    setLocalTab(next);
+    onTabChange?.(next);
+  };
   const [done, setDone] = useState(false);
   const tabs = [
     b("Pregled", "Overview"),
@@ -323,12 +334,29 @@ export function ProductDemo() {
         </span>
         <div>
           <strong>
-            {done
+            {done && tab === 1
               ? b("Radni nalog je završen.", "Work order completed.")
-              : b("Fiskalizacija 1.0 i 2.0", "Fiscalization 1.0 and 2.0")}{" "}
+              : tab === 0
+                ? b("Projekti i timovi", "Projects and teams")
+                : tab === 1
+                  ? b("Realizacija na terenu", "Field operations")
+                  : b("Računi i eRačuni", "Invoices and e-invoices")}{" "}
           </strong>
           <span>
-            {b("Ugrađene funkcionalnosti sustava", "Included as standard")}
+            {tab === 0
+              ? b(
+                  "Planiranje i raspored resursa",
+                  "Planning and resource scheduling",
+                )
+              : tab === 1
+                ? b(
+                    "Rad, materijali i dokumentacija",
+                    "Labour, materials, and documentation",
+                  )
+                : b(
+                    "Ugrađena Fiskalizacija 1.0 i 2.0",
+                    "Built-in Fiscalization 1.0 and 2.0",
+                  )}
           </span>
         </div>
       </div>
