@@ -50,7 +50,7 @@ export function ProductDemo() {
                   {b("VAŠ RADNI PROSTOR", "YOUR WORKSPACE")}
                 </span>
                 <h3>
-                  {b("Dobar dan, Marko", "Good afternoon, Marko")}{" "}
+                  {b("Pregled poslovanja", "Business overview")}{" "}
                   <span className="greeting-dot" />
                 </h3>
               </div>
@@ -125,15 +125,15 @@ export function ProductDemo() {
                         18.450 <small className="neutral">€</small>
                       </strong>
                       <span className="stat-label">
-                        {b("Sve na jednom mjestu", "Everything in one place")}
+                        {b("Pregled izdanih računa", "Issued invoice summary")}
                       </span>
                     </div>
                   </div>
                   <div className="task-heading">
                     <h4>
                       {b(
-                        "Danas je dobar dan za napredak.",
-                        "A good day to move things forward.",
+                        "Pregled današnjih aktivnosti",
+                        "Today’s scheduled activities",
                       )}
                     </h4>
                     <span>03</span>
@@ -217,10 +217,7 @@ export function ProductDemo() {
                       <span className="person mint">MK</span>
                     </div>
                     <span>
-                      {b(
-                        "Vaš tim. Uvijek povezan.",
-                        "Your team. Always connected.",
-                      )}
+                      {b("Status terenskih timova", "Field team status")}
                     </span>
                     <i className="online" />
                   </div>
@@ -303,8 +300,8 @@ export function ProductDemo() {
                   <div className="invoice-note">
                     <Icon name="check" size={14} />
                     {b(
-                      "Od naloga do računa. Bez prepisivanja.",
-                      "From work order to invoice. No retyping.",
+                      "Račun povezan s radnim nalogom",
+                      "Invoice linked to a work order",
                     )}
                   </div>
                 </div>
@@ -327,20 +324,18 @@ export function ProductDemo() {
         <div>
           <strong>
             {done
-              ? b("Odlično, još jedan gotov!", "Nice, another one done!")
-              : b("Sve ide po planu.", "Everything is on track.")}{" "}
+              ? b("Radni nalog je završen.", "Work order completed.")
+              : b("Fiskalizacija 1.0 i 2.0", "Fiscalization 1.0 and 2.0")}{" "}
           </strong>
           <span>
-            {b("Manje administracije. Više posla.", "Less admin. More doing.")}
+            {b("Ugrađene funkcionalnosti sustava", "Included as standard")}
           </span>
         </div>
-        <span className="note-spark">✦</span>
       </div>
       <div className="demo-caption">
-        <span className="drawn-arrow">↳</span>
         {b(
-          "Zavirite unutra. Isprobajte kartice.",
-          "Take a look. Try the tabs.",
+          "Interaktivni pregled funkcionalnosti",
+          "Interactive platform overview",
         )}
       </div>
     </div>

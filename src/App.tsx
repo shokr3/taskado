@@ -23,36 +23,36 @@ function App() {
   const industryCopy = [
     [
       b(
-        "Od prvog poziva do zadnjeg vijka.",
-        "From the first call to the final fix.",
+        "Upravljanje servisnim intervencijama.",
+        "Service operations management.",
       ),
       b(
-        "Dodijelite nalog, pošaljite tehničara i pratite izvedbu. Fotografije, utrošeni materijali i radni sati stižu izravno s terena.",
-        "Assign a work order, dispatch a technician, and follow the progress. Photos, materials, and working hours arrive straight from the field.",
+        "Planirajte intervencije, dodjeljujte naloge tehničarima i pratite realizaciju. Radni sati, utrošeni materijali i dokumentacija evidentiraju se izravno na terenu.",
+        "Schedule service visits, assign work orders to technicians, and track completion. Working hours, materials, and documentation are recorded directly in the field.",
       ),
       b("Servis klimatizacije", "Air conditioning service"),
       b("Pregled uređaja", "Equipment inspection"),
     ],
     [
       b(
-        "Svaki objekt. Svaki detalj. Pod kontrolom.",
-        "Every property. Every detail. Under control.",
+        "Planiranje i evidencija održavanja.",
+        "Maintenance planning and records.",
       ),
       b(
-        "Povežite ured i ekipe na lokaciji. Planirajte redovito održavanje i držite evidenciju radova na jednom mjestu.",
-        "Connect the office and on-site teams. Plan regular maintenance and keep a clear record of every job in one place.",
+        "Organizirajte redovito održavanje, rasporedite terenske timove i pratite izvršenje radova. Objedinite dokumentaciju i evidenciju aktivnosti za svaku lokaciju.",
+        "Coordinate scheduled maintenance, assign field teams, and track completed work. Keep documentation and activity records for each location in one system.",
       ),
       b("Održavanje objekta", "Property maintenance"),
       b("Pregled instalacija", "Installation inspection"),
     ],
     [
       b(
-        "Dobre ideje zaslužuju jasan plan.",
-        "Good ideas deserve a clear plan.",
+        "Pregled projekata, rokova i budžeta.",
+        "Project, deadline, and budget oversight.",
       ),
       b(
-        "Rasporedite zadatke, povežite ljude i pratite projektne budžete. Svatko zna što radi i koji je sljedeći korak.",
-        "Assign tasks, connect people, and track project budgets. Everyone knows what to do and what comes next.",
+        "Definirajte zadatke i odgovornosti, pratite rokove i nadzirite projektne budžete. Voditelji i članovi tima rade s istim podacima o napretku projekta.",
+        "Define tasks and responsibilities, monitor deadlines, and oversee project budgets. Managers and team members share the same view of project progress.",
       ),
       b("Novi projekt", "New project"),
       b("Priprema dokumentacije", "Document preparation"),
@@ -67,15 +67,15 @@ function App() {
     document.documentElement.lang = language;
     document.title =
       language === "hr"
-        ? "Taskado — Manje kaosa. Više obavljenog."
-        : "Taskado — Less chaos. More done.";
+        ? "Taskado — Poslovni sustav s Fiskalizacijom 1.0 i 2.0"
+        : "Taskado — Business management with Fiscalization 1.0 & 2.0";
     document
       .querySelector('meta[name="description"]')
       ?.setAttribute(
         "content",
         language === "hr"
-          ? "Povežite projekte, timove na terenu, radne naloge i račune u jednoj aplikaciji. Upoznajte Taskado i zatražite 30 dana besplatnog korištenja."
-          : "Connect projects, field teams, work orders, and invoices in one app. Discover Taskado and request a free 30-day trial.",
+          ? "Upravljanje projektima, radnim nalozima, timovima i računima uz ugrađenu Fiskalizaciju 1.0 i 2.0. Poslovni sustav za hrvatska poduzeća. Zatražite demonstraciju."
+          : "Manage projects, work orders, teams, and invoices with built-in Fiscalization 1.0 and 2.0. Business software for Croatian companies. Request a demonstration.",
       );
   }, [language]);
   useEffect(() => {
@@ -138,17 +138,17 @@ function App() {
       </a>
       <div className="announcement">
         <span className="announcement-label">
-          {b("POVEŽITE POSLOVANJE", "CONNECT YOUR BUSINESS")}
+          {b("ZA HRVATSKO TRŽIŠTE", "FOR THE CROATIAN MARKET")}
         </span>
         <span>
           {b(
-            "Od radnog naloga do računa. U jednom potezu.",
-            "From work order to invoice. In one move.",
+            "Fiskalizacija 1.0 i 2.0 uključene su u Taskado.",
+            "Fiscalization 1.0 and 2.0 included as standard.",
           )}
         </span>
         <a
-          href="#workflow"
-          aria-label={b("Pogledajte kako radi", "See how it works")}
+          href="#fiscalization"
+          aria-label={b("Ugrađena fiskalizacija", "Built-in fiscalization")}
         >
           <Icon size={15} />
         </a>
@@ -169,8 +169,8 @@ function App() {
               <a href="#features" onClick={() => setMenuOpen(false)}>
                 {b("Mogućnosti", "Features")}
               </a>
-              <a href="#solutions" onClick={() => setMenuOpen(false)}>
-                {b("Za vaš tim", "For your team")}
+              <a href="#fiscalization" onClick={() => setMenuOpen(false)}>
+                {b("Fiskalizacija", "Fiscalization")}
               </a>
               <a href="#pricing" onClick={() => setMenuOpen(false)}>
                 {b("Cijene", "Pricing")}
@@ -226,45 +226,37 @@ function App() {
             <div className="eyebrow">
               <span className="blue-dot" />{" "}
               {b(
-                "VELIKE STVARI. JEDNOSTAVNIJI RADNI DAN.",
-                "BIG AMBITIONS. A SIMPLER WORKDAY.",
+                "POSLOVNI SOFTVER ZA HRVATSKA PODUZEĆA",
+                "BUSINESS SOFTWARE FOR CROATIAN COMPANIES",
               )}
             </div>
             <h1>
-              {b("Manje kaosa.", "Less chaos.")}
+              {b("Upravljanje poslovanjem.", "Business management.")}
               <br />
-              {b("Više", "More")}{" "}
               <span className="accent-word">
-                {b("obavljenog.", "done.")}
-                <svg
-                  viewBox="0 0 440 20"
-                  preserveAspectRatio="none"
-                  aria-hidden="true"
-                >
-                  <path d="M3 12Q210 -4 436 10M65 18Q270 4 420 15" />
-                </svg>
+                {b("Fiskalizacija uključena.", "Fiscalization built in.")}
               </span>
             </h1>
             <p className="hero-description">
               {b(
-                "Projekti, timovi na terenu i računi. Napokon povezani u jednoj aplikaciji koja radi za vas.",
-                "Projects, field teams, and invoices. Finally connected in one app that works for you.",
+                "Objedinite projekte, radne naloge, terenske timove i račune u jednom sustavu. Taskado uključuje Fiskalizaciju 1.0 i 2.0 kao standardne funkcionalnosti za poslovanje na hrvatskom tržištu.",
+                "Manage projects, work orders, field teams, and invoices in one system. Taskado includes Fiscalization 1.0 and 2.0 as standard capabilities for businesses operating in Croatia.",
               )}
             </p>
             <div className="hero-actions">
               <a
                 className="button"
                 href="#contact"
-                onClick={() => goContact("trial")}
+                onClick={() => goContact("demo")}
               >
-                {b("Započnite besplatno", "Start for free")}
+                {b("Zatražite demonstraciju", "Request a demonstration")}
                 <Icon />
               </a>
               <a className="text-button" href="#workflow">
                 <span className="play-circle">
                   <Icon name="play" size={14} />
                 </span>
-                {b("Upoznajte Taskado", "Meet Taskado")}
+                {b("Pregled funkcionalnosti", "Explore the platform")}
               </a>
             </div>
             <div className="trial-note">
@@ -283,8 +275,8 @@ function App() {
         <div className="capability-strip shell">
           <span>
             {b(
-              "JEDAN SUSTAV. CIJELI VAŠ POSAO.",
-              "ONE SYSTEM. YOUR WHOLE BUSINESS.",
+              "INTEGRIRANO UPRAVLJANJE POSLOVANJEM",
+              "INTEGRATED BUSINESS MANAGEMENT",
             )}
           </span>
           <div>
@@ -293,7 +285,10 @@ function App() {
               ["document", b("Radni nalozi", "Work orders")],
               ["team", b("Timovi", "Teams")],
               ["calendar", b("Raspored", "Scheduling")],
-              ["bolt", b("Računi", "Invoicing")],
+              [
+                "shield",
+                b("Fiskalizacija 1.0 i 2.0", "Fiscalization 1.0 & 2.0"),
+              ],
             ].map(([i, t]) => (
               <span key={i}>
                 <Icon name={i} size={18} />
@@ -302,22 +297,129 @@ function App() {
             ))}
           </div>
         </div>
+        <section className="fiscal-section shell" id="fiscalization">
+          <div className="fiscal-visual">
+            <div className="receipt">
+              <span className="tiny muted">
+                TASKADO / {b("PRIMJER RAČUNA", "SAMPLE INVOICE")}
+              </span>
+              <div className="receipt-title">
+                <Icon name="document" size={30} />
+                <span>#2026–042</span>
+              </div>
+              <div className="receipt-line" />
+              <div className="receipt-line short" />
+              <div className="receipt-row">
+                <span>{b("Ukupno", "Total")}</span>
+                <strong>300,00 €</strong>
+              </div>
+              <div className="receipt-confirm">
+                <Icon name="check" size={15} />
+                {b("Povezano s radnim nalogom", "Linked to a work order")}
+              </div>
+            </div>
+            <div className="fiscal-seal">
+              <Icon name="shield" size={26} />
+              <span>1.0 + 2.0</span>
+            </div>
+          </div>
+          <div className="fiscal-copy">
+            <div className="eyebrow">
+              <span className="flag-croatia" />
+              {b(
+                "RAZVIJENO ZA HRVATSKO POSLOVANJE",
+                "BUILT FOR CROATIAN BUSINESSES",
+              )}
+            </div>
+            <h2>
+              {b("Fiskalizacija 1.0 i 2.0", "Fiscalization 1.0 and 2.0")}
+              <br />
+              {b("u jednom rješenju.", "in one platform.")}
+            </h2>
+            <p>
+              {b(
+                "Fiskalizacija je sastavni dio Taskada, dostupna kao standardna funkcionalnost. Povežite izdavanje računa i eRačuna s projektima, izvršenim radnim nalozima i evidencijom usluga.",
+                "Fiscalization is built into Taskado and included as standard. Connect invoices and e-invoices with projects, completed work orders, and service records.",
+              )}
+            </p>
+            <div className="fiscal-capabilities">
+              <article>
+                <span className="fiscal-version">1.0</span>
+                <div>
+                  <h3>
+                    {b(
+                      "Fiskalizacija u krajnjoj potrošnji",
+                      "Fiscalization for final consumption",
+                    )}
+                  </h3>
+                  <p>
+                    {b(
+                      "Izdavanje i fiskalizacija računa prema građanima, povezani s evidencijom obavljenih usluga.",
+                      "Issue and fiscalize consumer invoices, connected to records of completed services.",
+                    )}
+                  </p>
+                </div>
+              </article>
+              <article>
+                <span className="fiscal-version">2.0</span>
+                <div>
+                  <h3>
+                    {b(
+                      "eRačuni i njihova fiskalizacija",
+                      "E-invoices and their fiscalization",
+                    )}
+                  </h3>
+                  <p>
+                    {b(
+                      "Podrška za eRačune i njihovu fiskalizaciju unutar istog poslovnog procesa i korisničkog sučelja.",
+                      "Support for e-invoices and their fiscalization within the same business process and interface.",
+                    )}
+                  </p>
+                </div>
+              </article>
+            </div>
+            <a
+              className="text-button"
+              href="#contact"
+              onClick={() => goContact("demo")}
+            >
+              {b(
+                "Zatražite prezentaciju fiskalizacije",
+                "Request a fiscalization demonstration",
+              )}
+              <Icon />
+            </a>
+            <a
+              className="fiscal-reference"
+              href="https://porezna.gov.hr/fiskalizacija"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {b(
+                "Službene informacije Porezne uprave",
+                "Official Croatian Tax Administration information",
+              )}{" "}
+              ↗
+            </a>
+          </div>
+        </section>
         <section className="section workflow shell" id="workflow">
           <div className="section-top">
             <div>
               <div className="eyebrow">
-                01 / {b("POVEŽITE TOČKICE", "CONNECT THE DOTS")}
+                01 /{" "}
+                {b("POVEZANI POSLOVNI PROCESI", "CONNECTED BUSINESS PROCESSES")}
               </div>
               <h2>
-                {b("Dobar posao počinje", "Great work starts")}
+                {b("Od planiranja", "From planning")}
                 <br />
-                {b("dobrim pregledom.", "with a clear picture.")}
+                {b("do izdanog računa.", "to issued invoices.")}
               </h2>
             </div>
             <p>
               {b(
-                "Kad sve radi zajedno, vi imate prostora za ono što je važno. Ovako izgleda vaš dan s Taskadom.",
-                "When everything works together, you have room for what matters. Here’s what your day looks like with Taskado.",
+                "Povežite planiranje, izvršenje i obračun usluga. Jedinstvena evidencija smanjuje ponavljanje unosa i olakšava praćenje svakog koraka poslovnog procesa.",
+                "Connect planning, execution, and service billing. A shared record reduces duplicate entry and makes every stage of the business process easier to track.",
               )}
             </p>
           </div>
@@ -326,32 +428,41 @@ function App() {
               [
                 "01",
                 "calendar",
-                b("Isplanirajte dan.", "Plan the day."),
+                b("Planiranje i raspored", "Planning and scheduling"),
                 b(
-                  "Projekti, zadaci i ljudi u jednom rasporedu. Svatko zna što je sljedeće.",
-                  "Projects, tasks, and people on one schedule. Everyone knows what comes next.",
+                  "Rasporedite projekte, zadatke i zaposlenike prema prioritetima i raspoloživim resursima.",
+                  "Schedule projects, tasks, and employees according to priorities and available resources.",
                 ),
-                b("Jasan plan", "A clear plan"),
+                b("Pregled raspoloživih resursa", "Resource availability"),
               ],
               [
                 "02",
                 "phone",
-                b("Povežite teren.", "Connect the field."),
+                b("Izvršenje i evidencija", "Execution and records"),
                 b(
-                  "Nalozi, fotografije i materijali. Izravno s mobitela, bez dodatnih poziva.",
-                  "Work orders, photos, and materials. Straight from mobile, without extra calls.",
+                  "Pratite status naloga te evidentirajte rad, materijale i fotografije putem mobilne aplikacije.",
+                  "Track work order status and record labour, materials, and photos using the mobile app.",
                 ),
-                b("Povezan tim", "A connected team"),
+                b(
+                  "Podaci dostupni uredu i terenu",
+                  "Shared office and field records",
+                ),
               ],
               [
                 "03",
                 "document",
-                b("Zatvorite krug.", "Close the loop."),
                 b(
-                  "Pretvorite obavljen posao u račun. Bez ponovnog unosa istih podataka.",
-                  "Turn completed work into an invoice. Without entering the same information twice.",
+                  "Izdavanje i fiskalizacija računa",
+                  "Invoicing and fiscalization",
                 ),
-                b("Manje administracije", "Less admin"),
+                b(
+                  "Izradite račun na temelju izvršenog naloga uz ugrađenu podršku za Fiskalizaciju 1.0 i 2.0.",
+                  "Create an invoice from a completed work order with built-in support for Fiscalization 1.0 and 2.0.",
+                ),
+                b(
+                  "Povezan operativni i financijski proces",
+                  "Connected operations and invoicing",
+                ),
               ],
             ].map(([n, i, t, d, tag]) => (
               <article className="workflow-item" key={n}>
@@ -376,13 +487,16 @@ function App() {
             <div className="section-top">
               <div>
                 <div className="eyebrow">
-                  02 / {b("JEDNOSTAVNO MOĆAN", "SIMPLY POWERFUL")}
+                  02 / {b("FUNKCIONALNOSTI SUSTAVA", "PLATFORM CAPABILITIES")}
                 </div>
                 <h2>
-                  {b("Sve što trebate.", "Everything you need.")}
+                  {b("Upravljanje projektima.", "Project management.")}
                   <br />
                   <span className="muted-heading">
-                    {b("Ništa što vas usporava.", "Nothing to slow you down.")}
+                    {b(
+                      "Pregled resursa i troškova.",
+                      "Resource and cost visibility.",
+                    )}
                   </span>
                 </h2>
               </div>
@@ -391,7 +505,7 @@ function App() {
                 className="text-button"
                 onClick={() => goContact("demo")}
               >
-                {b("Pogledajte u akciji", "See it in action")}
+                {b("Zatražite prezentaciju", "Request a presentation")}
                 <Icon />
               </a>
             </div>
@@ -401,11 +515,11 @@ function App() {
                   <span className="feature-icon">
                     <Icon name="grid" size={22} />
                   </span>
-                  <h3>{b("Od ideje do „gotovo”.", "From idea to “done”.")}</h3>
+                  <h3>{b("Projekti i zadaci", "Projects and tasks")}</h3>
                   <p>
                     {b(
-                      "Pratite projekte, zadatke i budžete. Budite u toku, bez sastanka o tome jeste li u toku.",
-                      "Track projects, tasks, and budgets. Stay up to date, without a meeting about staying up to date.",
+                      "Definirajte projekte, dodijelite zadatke i pratite napredak uz pregled rokova i budžeta. Informacije o realizaciji dostupne su voditeljima i članovima tima.",
+                      "Define projects, assign tasks, and monitor progress alongside deadlines and budgets. Managers and team members have a shared view of delivery.",
                     )}
                   </p>
                 </div>
@@ -486,14 +600,14 @@ function App() {
                   <Icon name="calendar" size={22} />
                 </span>
                 <h3>
-                  {b("Pravo vrijeme.", "The right time.")}
+                  {b("Raspored rada", "Work scheduling")}
                   <br />
-                  {b("Pravi ljudi.", "The right people.")}
+                  {b("i dostupnost timova.", "and team availability.")}
                 </h3>
                 <p>
                   {b(
-                    "Vizualni raspored koji povezuje dostupnost tima s potrebama posla.",
-                    "Visual scheduling that connects team availability with the work ahead.",
+                    "Planirajte aktivnosti u vizualnom kalendaru i uskladite raspored s dostupnošću zaposlenika.",
+                    "Plan activities in a visual calendar and align schedules with employee availability.",
                   )}
                 </p>
                 <div className="schedule-art" aria-hidden="true">
@@ -528,26 +642,26 @@ function App() {
               {[
                 [
                   "team",
-                  b("Tim koji radi zajedno", "A team that works together"),
+                  b("Organizacija timova", "Team organisation"),
                   b(
-                    "Zadaci, dostupnost i odgovornosti. Jasno svima.",
-                    "Tasks, availability, and responsibilities. Clear to everyone.",
+                    "Upravljajte odgovornostima, dostupnošću i raspodjelom zadataka među zaposlenicima.",
+                    "Manage responsibilities, availability, and task allocation across your workforce.",
                   ),
                 ],
                 [
                   "document",
-                  b("Ponude koje postaju posao", "Quotes that become jobs"),
+                  b("Ponude i katalog usluga", "Quotes and service catalogue"),
                   b(
-                    "Profesionalne ponude i katalog vaših usluga.",
-                    "Professional quotes and your own service catalogue.",
+                    "Pripremite ponude na temelju vlastitog kataloga usluga i pripadajućih cijena.",
+                    "Prepare quotations using your service catalogue and associated prices.",
                   ),
                 ],
                 [
                   "spark",
-                  b("Sljedeći korak: AI", "Next up: AI"),
+                  b("AI podrška u razvoju", "AI capabilities in development"),
                   b(
-                    "Razvijamo asistente za planiranje i pametnije uvide.",
-                    "We’re developing assistants for planning and smarter insights.",
+                    "U razvoju su AI asistenti za podršku planiranju i analizi poslovnih podataka.",
+                    "AI assistants for planning and business data analysis are in development.",
                   ),
                 ],
               ].map(([i, t, d]) => (
@@ -571,18 +685,18 @@ function App() {
           <div className="section-top">
             <div>
               <div className="eyebrow">
-                03 / {b("VAŠ POSAO, VAŠ NAČIN", "YOUR BUSINESS, YOUR WAY")}
+                03 / {b("RJEŠENJA PREMA DJELATNOSTI", "SOLUTIONS BY INDUSTRY")}
               </div>
               <h2>
-                {b("U uredu. Na terenu.", "At the office. In the field.")}
+                {b("Upravljanje radom", "Manage operations")}
                 <br />
-                {b("Uvijek na istoj strani.", "Always on the same page.")}
+                {b("u uredu i na terenu.", "across office and field teams.")}
               </h2>
             </div>
             <p>
               {b(
-                "Za ljude koji rade konkretan posao. I žele da njihov softver radi isto.",
-                "For people who do real work. And want their software to do the same.",
+                "Taskado je namijenjen servisnim tvrtkama, pružateljima usluga održavanja i poduzećima koja organiziraju rad kroz projekte i naloge.",
+                "Taskado supports service companies, maintenance providers, and businesses that organise their work through projects and work orders.",
               )}
             </p>
           </div>
@@ -651,7 +765,7 @@ function App() {
                 className="text-button"
                 onClick={() => goContact("demo")}
               >
-                {b("Pronađimo vaš način rada", "Let’s find your workflow")}
+                {b("Razgovarajte s našim timom", "Speak to our team")}
                 <Icon />
               </a>
             </div>
@@ -680,7 +794,7 @@ function App() {
                 <span className="tiny muted">
                   {b("MOJ RADNI DAN", "MY WORKDAY")}
                 </span>
-                <h4>{b("Idemo na posao.", "Let’s get to work.")}</h4>
+                <h4>{b("Pregled radnih naloga", "Work order overview")}</h4>
                 <div className="phone-order">
                   <span className="status orange">
                     {b("U tijeku", "In progress")}
@@ -726,90 +840,29 @@ function App() {
               <div className="field-note">
                 <Icon name="bolt" size={19} />
                 <span>
-                  {b("Teren i ured. Povezani.", "Field and office. Connected.")}
+                  {b(
+                    "Sinkronizacija terenskih podataka",
+                    "Field data synchronisation",
+                  )}
                 </span>
               </div>
             </div>
           </div>
         </section>
-        <section className="fiscal-section shell" id="fiscalization">
-          <div className="fiscal-visual">
-            <div className="receipt">
-              <span className="tiny muted">
-                TASKADO / {b("PRIMJER RAČUNA", "SAMPLE INVOICE")}
-              </span>
-              <div className="receipt-title">
-                <Icon name="document" size={30} />
-                <span>#2026–042</span>
-              </div>
-              <div className="receipt-line" />
-              <div className="receipt-line short" />
-              <div className="receipt-row">
-                <span>{b("Ukupno", "Total")}</span>
-                <strong>300,00 €</strong>
-              </div>
-              <div className="receipt-confirm">
-                <Icon name="check" size={15} />
-                {b("Povezano s radnim nalogom", "Linked to a work order")}
-              </div>
-            </div>
-            <div className="fiscal-seal">
-              <Icon name="shield" size={26} />
-              <span>2.0</span>
-            </div>
-          </div>
-          <div className="fiscal-copy">
-            <div className="eyebrow">
-              <span className="flag-croatia" />
-              {b(
-                "RAZVIJENO ZA HRVATSKO POSLOVANJE",
-                "BUILT FOR CROATIAN BUSINESSES",
-              )}
-            </div>
-            <h2>
-              {b("Posao završen.", "Job done.")}
-              <br />
-              {b("Račun? I on.", "Invoice? That too.")}
-            </h2>
-            <p>
-              {b(
-                "Ponude, računi i Fiskalizacija 2.0 povezani s vašim radnim nalozima. Uz integraciju odabranog posrednika, administracija postaje dio procesa.",
-                "Quotes, invoices, and Fiscalization 2.0 connected to your work orders. With your chosen provider integrated, admin becomes part of the process.",
-              )}
-            </p>
-            <div className="fiscal-tags">
-              <span>B2B & B2C</span>
-              <span>{b("QR kodovi", "QR codes")}</span>
-              <span>{b("Katalog usluga", "Service catalogue")}</span>
-            </div>
-            <a
-              className="text-button"
-              href="#contact"
-              onClick={() => goContact("demo")}
-            >
-              {b(
-                "Razgovarajmo o vašem poslovanju",
-                "Let’s talk about your business",
-              )}
-              <Icon />
-            </a>
-          </div>
-        </section>
         <section className="section pricing shell" id="pricing">
           <div className="pricing-copy">
             <div className="eyebrow">
-              04 /{" "}
-              {b("MALI KORAK. VELIKA RAZLIKA.", "SMALL STEP. BIG DIFFERENCE.")}
+              04 / {b("PROBNO KORIŠTENJE I CIJENE", "TRIAL AND PRICING")}
             </div>
             <h2>
-              {b("Prvo se upoznajte.", "Get to know us first.")}
+              {b("Rješenje prilagođeno", "A solution tailored")}
               <br />
-              {b("Onda odlučite.", "Then decide.")}
+              {b("vašem poslovanju.", "to your business.")}
             </h2>
             <p>
               {b(
-                "Svaki tim radi drugačije. Zato ponudu prilagođavamo veličini vaše tvrtke, broju radnika i opsegu poslovanja.",
-                "Every team works differently. So we tailor your quote to your company size, number of workers, and scope of operations.",
+                "Provjerite odgovara li Taskado vašim procesima tijekom 30 dana besplatnog korištenja. Komercijalnu ponudu prilagođavamo broju korisnika i opsegu poslovanja.",
+                "Evaluate Taskado against your business processes with a free 30-day trial. Your commercial quote is tailored to your user count and scope of operations.",
               )}
             </p>
             <a
@@ -817,7 +870,7 @@ function App() {
               className="text-button"
               onClick={() => goContact("demo")}
             >
-              {b("Zatražite ponudu za svoj tim", "Get a quote for your team")}
+              {b("Zatražite individualnu ponudu", "Request a tailored quote")}
               <Icon />
             </a>
             <div className="pricing-footnote">
@@ -831,10 +884,7 @@ function App() {
           <div className="trial-card">
             <div className="trial-card-top">
               <span>
-                {b(
-                  "VAŠ NOVI RADNI DAN POČINJE OVDJE",
-                  "YOUR NEW WORKDAY STARTS HERE",
-                )}
+                {b("PROBNO KORIŠTENJE SUSTAVA", "EVALUATE THE PLATFORM")}
               </span>
               <Icon name="spark" size={27} />
             </div>
@@ -848,8 +898,8 @@ function App() {
             </div>
             <p>
               {b(
-                "Upoznajte sve mogućnosti. U svom ritmu.",
-                "Explore every feature. At your own pace.",
+                "Pristup funkcionalnostima sustava bez obveze ugovaranja.",
+                "Access platform capabilities with no contractual commitment.",
               )}
             </p>
             <ul className="trial-features">
@@ -861,8 +911,12 @@ function App() {
                 ),
                 b("Mobilna aplikacija za vaš tim", "Mobile app for your team"),
                 b(
-                  "Ponude, računi i Fiskalizacija 2.0",
-                  "Quotes, invoicing & Fiscalization 2.0",
+                  "Ponude, računi i eRačuni",
+                  "Quotes, invoices, and e-invoices",
+                ),
+                b(
+                  "Ugrađena Fiskalizacija 1.0 i 2.0",
+                  "Built-in Fiscalization 1.0 and 2.0",
                 ),
               ].map((x) => (
                 <li key={x}>
@@ -889,19 +943,36 @@ function App() {
         </section>
         <section className="faq-section shell">
           <div>
-            <div className="eyebrow">{b("DOBRO JE ZNATI", "GOOD TO KNOW")}</div>
-            <h2>{b("Još nešto vas zanima?", "A few more questions?")}</h2>
+            <div className="eyebrow">
+              {b("ČESTA PITANJA", "FREQUENTLY ASKED QUESTIONS")}
+            </div>
+            <h2>
+              {b(
+                "Informacije za vaše poslovanje",
+                "Information for your business",
+              )}
+            </h2>
           </div>
           <div className="faq-list">
             {[
+              [
+                b(
+                  "Jesu li Fiskalizacija 1.0 i 2.0 uključene u sustav?",
+                  "Are Fiscalization 1.0 and 2.0 included?",
+                ),
+                b(
+                  "Da. Taskado standardno uključuje Fiskalizaciju 1.0 za račune u krajnjoj potrošnji te Fiskalizaciju 2.0 za eRačune. Funkcionalnosti su dio istog sustava u kojem upravljate projektima, radnim nalozima i računima.",
+                  "Yes. Taskado includes Fiscalization 1.0 for consumer invoices and Fiscalization 2.0 for e-invoices as standard. These capabilities are part of the same platform used to manage projects, work orders, and invoicing.",
+                ),
+              ],
               [
                 b(
                   "Je li Taskado za moju tvrtku?",
                   "Is Taskado right for my business?",
                 ),
                 b(
-                  "Taskado je razvijen za mala i srednja poduzeća koja povezuju projekte, terenske timove, radne naloge i račune. Zatražite demo i zajedno ćemo proći vaš način rada.",
-                  "Taskado is built for small and medium businesses connecting projects, field teams, work orders, and invoices. Request a demo and we’ll walk through your workflow together.",
+                  "Taskado je namijenjen malim i srednjim poduzećima na hrvatskom tržištu, osobito servisnim tvrtkama, pružateljima usluga održavanja i projektnim timovima. Objedinjuje operativno upravljanje, izdavanje računa te Fiskalizaciju 1.0 i 2.0.",
+                  "Taskado is designed for small and medium businesses operating in Croatia, particularly service companies, maintenance providers, and project teams. It combines operational management, invoicing, and Fiscalization 1.0 and 2.0.",
                 ),
               ],
               [
@@ -945,20 +1016,19 @@ function App() {
               <div className="eyebrow">
                 <span className="lime-dot" />
                 {b(
-                  "NAPRAVIMO MJESTA ZA BOLJI RAD",
-                  "MAKE ROOM FOR BETTER WORK",
+                  "PREZENTACIJA I SAVJETOVANJE",
+                  "DEMONSTRATION AND CONSULTATION",
                 )}
               </div>
               <h2>
-                {b("Vaš sljedeći", "Your next")}
+                {b("Dogovorite", "Book a")}
                 <br />
-                {b("dobar potez.", "great move.")}
-                <span className="contact-asterisk">✳</span>
+                {b("prezentaciju.", "demonstration.")}
               </h2>
               <p>
                 {b(
-                  "Recite nam kako radite. Pokazat ćemo vam kako Taskado može pojednostaviti vaš dan.",
-                  "Tell us how you work. We’ll show you how Taskado can simplify your day.",
+                  "Predstavit ćemo vam upravljanje projektima, terenskim radom i računima te ugrađenu Fiskalizaciju 1.0 i 2.0, uz osvrt na potrebe vašeg poduzeća.",
+                  "Our team will demonstrate project management, field operations, invoicing, and built-in Fiscalization 1.0 and 2.0 in the context of your business requirements.",
                 )}
               </p>
               <div className="contact-details">
@@ -974,7 +1044,7 @@ function App() {
                 </a>
               </div>
               <div className="contact-bottom">
-                {b("Ljudi iza Taskada", "The people behind Taskado")}
+                {b("Razvoj i podrška", "Development and support")}
                 <a
                   href="https://www.knowit.hr"
                   target="_blank"
@@ -995,11 +1065,16 @@ function App() {
                   <span className="success-icon">
                     <Icon name="check" size={32} />
                   </span>
-                  <h3>{b("Odličan prvi korak.", "A great first step.")}</h3>
+                  <h3>
+                    {b(
+                      "Zahtjev je zaprimljen.",
+                      "Your request has been received.",
+                    )}
+                  </h3>
                   <p>
                     {b(
-                      "Hvala na javljanju! Naš tim uskoro će vas kontaktirati.",
-                      "Thanks for reaching out! Our team will be in touch soon.",
+                      "Zahvaljujemo na upitu. Naš tim kontaktirat će vas radi dogovora o sljedećim koracima.",
+                      "Thank you for your enquiry. Our team will contact you to arrange the next steps.",
                     )}
                   </p>
                 </div>
@@ -1015,7 +1090,7 @@ function App() {
                       }}
                       className={intent === "demo" ? "active" : ""}
                     >
-                      {b("Želim demo", "Book a demo")}
+                      {b("Prezentacija sustava", "Platform demonstration")}
                     </button>
                     <button
                       type="button"
@@ -1026,24 +1101,24 @@ function App() {
                       }}
                       className={intent === "trial" ? "active" : ""}
                     >
-                      {b("Želim probati besplatno", "Start a free trial")}
+                      {b("Probno korištenje", "Free trial")}
                     </button>
                   </div>
                   <h3>
                     {intent === "demo"
                       ? b(
-                          "Upoznajmo vaš posao.",
-                          "Let’s get to know your business.",
+                          "Zatražite prezentaciju sustava.",
+                          "Request a platform demonstration.",
                         )
                       : b(
-                          "Isprobajte bolji radni dan.",
-                          "Try a better workday.",
+                          "Zatražite probno korištenje.",
+                          "Request a free trial.",
                         )}
                   </h3>
                   <p className="form-intro">
                     {b(
-                      "Ostavite nam kontakt. Ostalo ćemo zajedno.",
-                      "Leave your details. We’ll take it from there.",
+                      "Unesite podatke tvrtke i kontakt osobe. Naš tim javit će vam se radi dogovora.",
+                      "Provide your company and contact details. Our team will contact you to make arrangements.",
                     )}
                   </p>
                   <form onSubmit={submit} onChange={() => setEmailDraft("")}>
@@ -1100,8 +1175,8 @@ function App() {
                         name="message"
                         rows={3}
                         placeholder={b(
-                          "Recite nam ukratko o svom timu i poslu…",
-                          "Tell us a little about your team and your work…",
+                          "Navedite djelatnost, broj korisnika i funkcionalnosti koje vas zanimaju.",
+                          "Describe your industry, user count, and the capabilities you would like to evaluate.",
                         )}
                       />
                     </label>
@@ -1158,7 +1233,10 @@ function App() {
                       {sending
                         ? b("Šaljemo…", "Sending…")
                         : intent === "demo"
-                          ? b("Dogovorimo demo", "Let’s book a demo")
+                          ? b(
+                              "Pošaljite zahtjev za prezentaciju",
+                              "Send demonstration request",
+                            )
                           : b(
                               "Zatražite 30 dana besplatno",
                               "Request your free 30 days",
@@ -1180,18 +1258,18 @@ function App() {
         <section className="enterprise shell">
           <div>
             <span className="eyebrow">
-              {b("RASTETE? I MI S VAMA.", "GROWING? WE GROW WITH YOU.")}
+              {b("RJEŠENJA ZA VELIKA PODUZEĆA", "ENTERPRISE SOLUTIONS")}
             </span>
             <h3>
               {b(
-                "Velika organizacija. Još veće mogućnosti.",
-                "A bigger organisation. Even bigger possibilities.",
+                "Podrška složenim poslovnim procesima.",
+                "Support for complex business operations.",
               )}
             </h3>
             <p>
               {b(
-                "Upoznajte Task, naše rješenje za složene procese i velike timove.",
-                "Meet Task, our solution for complex operations and large teams.",
+                "Za veće organizacije i napredne operativne zahtjeve dostupno je naše poslovno rješenje Task.",
+                "Our Task business solution is available for larger organisations with advanced operational requirements.",
               )}
             </p>
           </div>
@@ -1213,7 +1291,10 @@ function App() {
               <img src="/logo.png" alt="Taskado" width="151" height="35" />
             </a>
             <span>
-              {b("Manje kaosa. Više obavljenog.", "Less chaos. More done.")}
+              {b(
+                "Poslovni sustav za hrvatska poduzeća.",
+                "Business software for Croatian companies.",
+              )}
             </span>
             <a href="#main" className="back-top">
               {b("Na vrh", "Back to top")} ↑

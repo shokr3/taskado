@@ -308,10 +308,10 @@ svg {
   margin-bottom: 26px;
 }
 .hero h1 {
-  font-size: clamp(48px, 4.6vw, 70px);
+  font-size: clamp(37px, 3.5vw, 54px);
   font-weight: 650;
   line-height: 1.09;
-  letter-spacing: -3.7px;
+  letter-spacing: -2px;
   white-space: nowrap;
 }
 .accent-word {
@@ -332,7 +332,7 @@ svg {
 .hero-description {
   font-size: 16px;
   line-height: 1.75;
-  max-width: 405px;
+  max-width: 465px;
   margin-top: 30px;
   letter-spacing: -0.15px;
 }
@@ -2141,7 +2141,7 @@ button.task-row:hover {
     min-height: 730px;
   }
   .hero h1 {
-    font-size: 74px;
+    font-size: 56px;
   }
   .hero-description {
     font-size: 18px;
@@ -2183,8 +2183,8 @@ button.task-row:hover {
     padding-block: 80px;
   }
   .hero h1 {
-    font-size: 54px;
-    letter-spacing: -3px;
+    font-size: 38px;
+    letter-spacing: -1.8px;
   }
   .hero .eyebrow {
     font-size: 7px;
@@ -2305,8 +2305,8 @@ button.task-row:hover {
     font-size: 9px;
   }
   .hero h1 {
-    font-size: clamp(57px, 8vw, 76px);
-    letter-spacing: -4px;
+    font-size: clamp(42px, 5.5vw, 56px);
+    letter-spacing: -2.2px;
   }
   .hero-description {
     font-size: 17px;
@@ -2627,8 +2627,8 @@ button.task-row:hover {
     margin-bottom: 23px;
   }
   .hero h1 {
-    font-size: clamp(39px, 8.8vw, 62px);
-    letter-spacing: -2.6px;
+    font-size: clamp(28px, 7.3vw, 44px);
+    letter-spacing: -1.3px;
   }
   .hero-description {
     font-size: 14px;
@@ -3262,8 +3262,8 @@ button.task-row:hover {
     width: calc(100% - 32px);
   }
   .hero h1 {
-    font-size: 37px;
-    letter-spacing: -2.3px;
+    font-size: 25px;
+    letter-spacing: -1.2px;
   }
   .hero .eyebrow {
     font-size: 6px;
@@ -3356,5 +3356,140 @@ button.task-row:hover {
   .pricing .text-button {
     font-size: 11px;
     gap: 8px;
+  }
+}
+
+/* Croatian market positioning and integrated fiscalization. */
+.fiscal-section {
+  padding-top: 85px;
+}
+.fiscal-visual {
+  min-height: 430px;
+}
+.fiscal-copy h2 {
+  font-size: clamp(31px, 3vw, 43px);
+  letter-spacing: -1.6px;
+}
+.fiscal-capabilities {
+  display: grid;
+  gap: 18px;
+  margin: 24px 0 28px;
+}
+.fiscal-capabilities article {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+}
+.fiscal-version {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 37px;
+  height: 35px;
+  border: 1px solid #dedcec;
+  border-radius: 6px;
+  background: #f1f0fa;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 600;
+}
+.fiscal-capabilities h3 {
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 5px;
+  font-weight: 650;
+}
+.fiscal-capabilities p {
+  font-size: 12px;
+  line-height: 1.8;
+  max-width: 390px;
+}
+.fiscal-reference {
+  display: block;
+  width: fit-content;
+  font-size: 10px;
+  color: #817c8a;
+  margin-top: 16px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.fiscal-seal {
+  width: 88px;
+  height: 88px;
+  flex-direction: column;
+  gap: 3px;
+}
+.fiscal-seal span {
+  font-size: 10px;
+}
+.workflow-item h3 {
+  line-height: 1.4;
+}
+.hero .hero-actions {
+  gap: 20px;
+}
+.hero .hero-actions .button {
+  gap: 14px;
+}
+.hero .hero-actions .text-button {
+  gap: 9px;
+}
+@media (max-width: 1150px) {
+  .hero .hero-actions {
+    gap: 13px;
+  }
+  .hero .hero-actions .button {
+    padding-inline: 14px;
+  }
+  .hero .hero-actions .text-button {
+    gap: 7px;
+  }
+  .orbit {
+    display: none;
+  }
+  .fiscal-section {
+    padding-top: 70px;
+  }
+}
+@media (max-width: 720px) {
+  .fiscal-section {
+    padding-top: 60px;
+  }
+  .fiscal-visual {
+    min-height: 325px;
+  }
+  .fiscal-copy h2 {
+    font-size: 30px;
+    letter-spacing: -1.2px;
+  }
+  .fiscal-capabilities h3 {
+    font-size: 12px;
+  }
+  .fiscal-copy .text-button {
+    font-size: 11px;
+    gap: 8px;
+  }
+  .hero .hero-actions {
+    flex-direction: column;
+    gap: 18px;
+  }
+  .hero .hero-actions .button {
+    padding-inline: 22px;
+    font-size: 12px;
+  }
+  .contact-copy h2 {
+    font-size: 46px;
+    letter-spacing: -2px;
+  }
+  .capability-strip > div > span {
+    font-size: 9px;
+  }
+}
+@media (max-width: 365px) {
+  .fiscal-copy h2 {
+    font-size: 26px;
+  }
+  .contact-copy h2 {
+    font-size: 40px;
   }
 }

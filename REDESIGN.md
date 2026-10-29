@@ -4,7 +4,7 @@ Branch: `codex/taskado-redesign`
 
 ## Design direction
 
-A product-led marketing site built around the promise “Manje kaosa. Više obavljenog.” Warm neutral surfaces, cobalt actions, Manrope headings, and compact interface illustrations retain the Taskado brand while giving the page a calmer, more contemporary identity.
+A product-led marketing site positioned as integrated business software for Croatian companies, with Fiscalization 1.0 and 2.0 included as standard. Warm neutral surfaces, cobalt actions, Manrope headings, and compact interface illustrations retain the Taskado brand while giving the page a calmer, more contemporary identity.
 
 The visitor journey connects the daily workflow (plan → field work → invoice), feature demonstrations, industry-specific examples, local invoicing, a transparent trial offer, practical FAQs, and a dedicated demo/trial enquiry form. Illustrative product data is identified; no customer logos, testimonials, or performance metrics were invented. AI remains explicitly upcoming. Existing company, enterprise, contact, and login destinations are retained.
 
@@ -32,8 +32,14 @@ Semantic landmarks, labeled inputs, native form validation, visible focus rings,
 
 - TypeScript project build and Vite production bundle.
 - Browser checks of Croatian and English, language persistence, overview/work-order/invoice tabs, task completion and counter updates, industry panels, mobile navigation, FAQs, trial intent, required form fields, and the unconfigured email fallback.
-- Responsive checks at 320, 390, 768, and 1440 CSS pixels.
+- Responsive checks at 320, 390, 768, 1024, and 1440 CSS pixels.
 
 The local agent environment's native esbuild file reads stall in the Documents checkout. The standard unchanged `npm run build` completes from a mirrored temporary directory under `/private/tmp`; generated assets are copied back to the checkout for packaging. No runtime workaround or dependency change is required by the website.
 
 The retained dependency tree reports existing npm audit findings; dependency upgrades are outside this visual redesign. External form delivery requires a configured key and was not tested by sending a real enquiry.
+
+## Croatian market copy revision
+
+The owner confirmed that Taskado provides Fiscalization 1.0 and 2.0 out of the box. This capability is now prominent in the announcement, hero, navigation, first substantive section, workflow, pricing, FAQ, contact copy, and search/social metadata. Both Croatian and English use a professional business register with specific feature descriptions rather than conversational slogans. The visual direction and existing enquiry behavior are retained.
+
+Fiscal terminology was checked against the [Croatian Tax Administration overview](https://porezna.gov.hr/fiskalizacija) and [eRačun guidance](https://porezna.gov.hr/fiskalizacija/bezgotovinski-racuni/eracun). The page distinguishes fiscalization in final consumption from e-invoices and their fiscalization. It does not introduce claims about regulatory certification, blanket legal compliance, service pricing, or deadlines.
