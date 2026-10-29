@@ -67,8 +67,8 @@ function App() {
     document.documentElement.lang = language;
     document.title =
       language === "hr"
-        ? "Taskado — Poslovni sustav s Fiskalizacijom 1.0 i 2.0"
-        : "Taskado — Business management with Fiscalization 1.0 & 2.0";
+        ? "Taskado — Upravljanje poslovanjem u jednom sustavu"
+        : "Taskado — Business management in one platform";
     document
       .querySelector('meta[name="description"]')
       ?.setAttribute(
@@ -231,10 +231,10 @@ function App() {
               )}
             </div>
             <h1>
-              {b("Upravljanje poslovanjem.", "Business management.")}
+              {b("Upravljanje poslovanjem", "Business management")}
               <br />
               <span className="accent-word">
-                {b("Fiskalizacija uključena.", "Fiscalization built in.")}
+                {b("u jednom sustavu.", "in one platform.")}
               </span>
             </h1>
             <p className="hero-description">

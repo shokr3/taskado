@@ -43,3 +43,7 @@ The retained dependency tree reports existing npm audit findings; dependency upg
 The owner confirmed that Taskado provides Fiscalization 1.0 and 2.0 out of the box. This capability is now prominent in the announcement, hero, navigation, first substantive section, workflow, pricing, FAQ, contact copy, and search/social metadata. Both Croatian and English use a professional business register with specific feature descriptions rather than conversational slogans. The visual direction and existing enquiry behavior are retained.
 
 Fiscal terminology was checked against the [Croatian Tax Administration overview](https://porezna.gov.hr/fiskalizacija) and [eRačun guidance](https://porezna.gov.hr/fiskalizacija/bezgotovinski-racuni/eracun). The page distinguishes fiscalization in final consumption from e-invoices and their fiscalization. It does not introduce claims about regulatory certification, blanket legal compliance, service pricing, or deadlines.
+
+## Headline refinement
+
+The headline now reads “Upravljanje poslovanjem u jednom sustavu.” (English: “Business management in one platform.”). It leads with the broader platform value. Fiscalization 1.0 and 2.0 remain in the supporting copy and dedicated section. Browser, social, and Site titles use the broader positioning.
