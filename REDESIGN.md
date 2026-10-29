@@ -1,0 +1,39 @@
+# Taskado website redesign
+
+Branch: `codex/taskado-redesign`
+
+## Design direction
+
+A product-led marketing site built around the promise “Manje kaosa. Više obavljenog.” Warm neutral surfaces, cobalt actions, Manrope headings, and compact interface illustrations retain the Taskado brand while giving the page a calmer, more contemporary identity.
+
+The visitor journey connects the daily workflow (plan → field work → invoice), feature demonstrations, industry-specific examples, local invoicing, a transparent trial offer, practical FAQs, and a dedicated demo/trial enquiry form. Illustrative product data is identified; no customer logos, testimonials, or performance metrics were invented. AI remains explicitly upcoming. Existing company, enterprise, contact, and login destinations are retained.
+
+## Main files
+
+- `src/App.tsx`: marketing page, industry tabs, FAQs, and enquiry form.
+- `src/redesign/ProductDemo.tsx`: interactive overview, work orders, task completion, and invoice preview.
+- `src/redesign/Icon.tsx`: shared SVG icon set.
+- `src/index.css`: responsive visual system, including reduced-motion styles.
+- `src/i18n/LanguageContext.tsx`: language preference persistence.
+
+The existing React/Vite toolchain and dependencies are retained. Older section components remain available as reference and are no longer mounted by App.
+
+## Enquiries
+
+Set `VITE_WEB3FORMS_ACCESS_KEY` in the build environment to enable the existing Web3Forms integration. It is a public form access key, not a server secret. Rebuild after changing it.
+
+Without the key, submitting the form prepares an email and presents an explicit “Open prepared email” link. The visitor sends it using their email application. The page does not report a successful submission when no message has been sent. Network failures retain form input and show a retry/direct-contact option. Trial and demo selections produce distinct enquiry subjects.
+
+## Accessibility and responsive behavior
+
+Semantic landmarks, labeled inputs, native form validation, visible focus rings, skip navigation, keyboard-operated tabs, live submission feedback, an Escape-close mobile menu, and reduced-motion support are included. The page works at mobile, tablet, and desktop widths. The language selection updates the document language, title, and description and persists when local storage is available.
+
+## Validation
+
+- TypeScript project build and Vite production bundle.
+- Browser checks of Croatian and English, language persistence, overview/work-order/invoice tabs, task completion and counter updates, industry panels, mobile navigation, FAQs, trial intent, required form fields, and the unconfigured email fallback.
+- Responsive checks at 320, 390, 768, and 1440 CSS pixels.
+
+The local agent environment's native esbuild file reads stall in the Documents checkout. The standard unchanged `npm run build` completes from a mirrored temporary directory under `/private/tmp`; generated assets are copied back to the checkout for packaging. No runtime workaround or dependency change is required by the website.
+
+The retained dependency tree reports existing npm audit findings; dependency upgrades are outside this visual redesign. External form delivery requires a configured key and was not tested by sending a real enquiry.
