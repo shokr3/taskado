@@ -52,7 +52,7 @@ The previous headline revision read “Upravljanje poslovanjem u jednom sustavu.
 
 ## Creative design revision
 
-The headline is now “Poslovanje u punom pogonu.” (English: “Your business in full flow.”). The design uses an operational-flow concept: visitors select projects, work orders, or invoicing in a custom cobalt canvas, and both sets of preview controls stay synchronized. A dark workflow section, orange scheduling panel, large fiscalization numerals, sharper geometry, and a cobalt contact section create a more varied page composition.
+The selected headline is “Od plana do naplate. Sve povezano.” (English: “From planning to payment. All connected.”). The design uses an operational-flow concept: visitors select projects, work orders, or invoicing in a custom cobalt canvas, and both sets of preview controls stay synchronized. A dark workflow section, orange scheduling panel, large fiscalization numerals, sharper geometry, and a cobalt contact section create a more varied page composition.
 
 Fiscalization remains part of the broader product story; its detailed section follows the operational features and industry examples. No new product claims, customer references, or performance metrics were added. Croatian and English remain supported. The additional preview controls are ordinary keyboard-operable buttons, and the internal product tabs retain their arrow-key navigation.
 

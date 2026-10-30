@@ -67,8 +67,8 @@ function App() {
     document.documentElement.lang = language;
     document.title =
       language === "hr"
-        ? "Taskado — Poslovanje u punom pogonu"
-        : "Taskado — Your business in full flow";
+        ? "Taskado — Od plana do naplate. Sve povezano."
+        : "Taskado — From planning to payment. All connected.";
     document
       .querySelector('meta[name="description"]')
       ?.setAttribute(
@@ -231,10 +231,12 @@ function App() {
               )}
             </div>
             <h1>
-              {b("Poslovanje", "Your business")}
+              {b("Od plana", "From planning")}
+              <br />
+              {b("do naplate.", "to payment.")}
               <br />
               <span className="accent-word">
-                {b("u punom pogonu.", "in full flow.")}
+                {b("Sve povezano.", "All connected.")}
               </span>
             </h1>
             <p className="hero-description">
